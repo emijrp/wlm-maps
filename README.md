@@ -1,4 +1,4 @@
 wlm-maps
 ========
 
-A map for Wiki Loves Monuments photograph contest
+A map for the Wiki Loves Monuments photograph contest
