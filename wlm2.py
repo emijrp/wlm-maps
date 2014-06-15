@@ -64,6 +64,9 @@ countrynames = {
     'us': 'United States',
     'za': 'South Africa',
 }
+countrynames = {
+    'ad': 'Andorra', 
+}
 capitals = {
     'ar': 'ar-c',
     'at': 'wien',
@@ -923,11 +926,11 @@ def main():
         
         #loading monuments from database
         if country == 'dk':
-            curs.execute("SELECT * FROM monuments_all WHERE (country=? OR country=?) AND lat IS NOT NULL AND lon IS NOT NULL;", ('dk-bygning', 'dk-fortids'))
+            curs.execute("/* SLOW_OK */ SELECT * FROM monuments_all WHERE (country=? OR country=?) AND lat IS NOT NULL AND lon IS NOT NULL;", ('dk-bygning', 'dk-fortids'))
         elif country == 'sk':
-            curs.execute("SELECT * FROM monuments_all WHERE country=? AND lang=? AND lat IS NOT NULL AND lon IS NOT NULL;", (country, country))
+            curs.execute("/* SLOW_OK */ SELECT * FROM monuments_all WHERE country=? AND lang=? AND lat IS NOT NULL AND lon IS NOT NULL;", (country, country))
         else:
-            curs.execute("SELECT * FROM monuments_all WHERE country=? AND lat IS NOT NULL AND lon IS NOT NULL;", (country,))
+            curs.execute("/* SLOW_OK */ SELECT * FROM monuments_all WHERE country=? AND lat IS NOT NULL AND lon IS NOT NULL;", (country,))
         row = curs.fetchone()
         missingcoordinates = 0
         missingimages = 0
@@ -1143,9 +1146,9 @@ if (isset($_GET['place']))
 <big><big><big><b><a href="%s">Wiki <i>Loves</i> Monuments 2014, %s</a></b></big></big></big>
 <br/>
 <b>%d geolocated monuments</b> and <!--%d with coordinates (%.1f%%) and %d with images (%.1f%%)-->%d of them (%.1f%%) need images. Get your camera and take photos, thanks!<br/><b>Legend:</b> with image <img src="%s" width=20px title="with image" alt="with image"/>, without image <img src="%s" width=20px title="without image" alt="without image"/> - See <b><a href="../stats.php">detailed statistics</a></b> about the contest - <b>Share:</b> 
-<a href="http://twitter.com/home?status=Find+monuments+near+to+you+in+%s+http://toolserver.org/~emijrp/wlm/%s+Take+photographs+and+upload+them+to+%%23WikiLovesMonuments+:))" target="_blank"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Twitter_Logo_Mini.svg/18px-Twitter_Logo_Mini.svg.png" title="Share on Twitter!" /></a>&nbsp;
-<a href="http://www.facebook.com/sharer/sharer.php?u=http://toolserver.org/~emijrp/wlm/%s" target="_blank"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_Logo_Mini.svg/16px-Facebook_Logo_Mini.svg.png" title="Share on Facebook!" /></a>&nbsp;
-<a href="http://identi.ca/notice/new?status_textarea=Find+monuments+near+to+you+in+%s+http://toolserver.org/~emijrp/wlm/%s+Take+photographs+and+upload+them+to+%%23WikiLovesMonuments+:))" target="_blank"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Identica_share_button.png/18px-Identica_share_button.png" title="Share on Identi.ca!" /></a> - <b><a href="https://play.google.com/store/apps/details?id=org.wikilovesmonuments">Android app!</a></b>
+<a href="http://twitter.com/home?status=Find+monuments+near+to+you+in+%s+https://tools.wmflabs.org/wlm-maps/%s+Take+photographs+and+upload+them+to+%%23WikiLovesMonuments+:))" target="_blank"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Twitter_Logo_Mini.svg/18px-Twitter_Logo_Mini.svg.png" title="Share on Twitter!" /></a>&nbsp;
+<a href="http://www.facebook.com/sharer/sharer.php?u=https://tools.wmflabs.org/wlm-maps/%s" target="_blank"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_Logo_Mini.svg/16px-Facebook_Logo_Mini.svg.png" title="Share on Facebook!" /></a>&nbsp;
+<a href="http://identi.ca/notice/new?status_textarea=Find+monuments+near+to+you+in+%s+https://tools.wmflabs.org/wlm-maps/%s+Take+photographs+and+upload+them+to+%%23WikiLovesMonuments+:))" target="_blank"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Identica_share_button.png/18px-Identica_share_button.png" title="Share on Identi.ca!" /></a> - <b><a href="https://play.google.com/store/apps/details?id=org.wikilovesmonuments">Android app!</a></b>
 </center>
 </td>
 <td width=1%%>
@@ -1181,7 +1184,7 @@ if (isset($_GET['place']))
 </table>
 
 <!-- more countries --><div class="menu"><b>More countries:</b> %s</div>
-<i>Last update: %s (UTC). Developed by <a href="http://toolserver.org/~emijrp/">emijrp</a> using <a href="http://wlm.wikimedia.org/api/api.php">erfgoed database</a> and <a href="http://de.wikipedia.org/wiki/Benutzerin:Elya">Elya</a>'s CSS. <a href="http://code.google.com/p/toolserver/source/browse/trunk/wlm/wlm2.py">Source code</a> is GPL. Visits: <?php include ("../../visits.php"); ?></i>
+<i>Last update: %s (UTC). Developed by <a href="https://wikitech.wikimedia.org/wiki/User:Emijrp">emijrp</a> using <a href="http://wlm.wikimedia.org/api/api.php">erfgoed database</a> and <a href="http://de.wikipedia.org/wiki/Benutzerin:Elya">Elya</a>'s CSS. <a href="https://github.com/emijrp/wlm-maps">Source code</a> is GPL.</i>
 <br/>
 </td>
 </tr>
