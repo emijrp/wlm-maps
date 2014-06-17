@@ -12,7 +12,7 @@ function init() {
     // map stuff
     // base layer
     var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
-    var osmAttrib='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    var osmAttrib='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors | <a href="https://commons.wikimedia.org/wiki/Commons:Monuments_database">Monuments database</a> by Wikipedia editors | <a href="https://github.com/emijrp/wlm-maps">Source code</a> in GitHub';
     
     layerOSM = new L.TileLayer(osmUrl, {
         minZoom: 2, 
