@@ -43,7 +43,7 @@ try {
 }
 
 try {
-	$sql="SELECT country, lang, id, name, lat, lon, image, monument_article, monument_random FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT 500";
+	$sql="SELECT country, lang, id, name, lat, lon, image, monument_article, monument_random FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT 100";
 	$stmt = $db->prepare($sql);
 	$stmt->bindParam(':left', $left, PDO::PARAM_STR);
 	$stmt->bindParam(':right', $right, PDO::PARAM_STR);
@@ -76,7 +76,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 	$prop['image']=$row['image'];
     $image_ = str_replace(' ', '_', $row['image']);
     $image_md5 = md5($image_);
-	$prop['monument_article']='https://'.$row['lang'].'.wikipedia.org/wiki/'.$row['monument_article'];
+	$prop['monument_article']='https://'.$row['lang'].'.wikipedia.org/wiki/'.str_replace(' ' , '_', $row['monument_article']);
+    $prop['image_url']='https://commons.wikimedia.org/wiki/File:'.$image_;
     $prop['thumb_url']='https://upload.wikimedia.org/wikipedia/commons/thumb/'.substr($image_md5,0,1).'/'.substr($image_md5,0,2).'/'.$image_.'/150px-'.$image_;
     $prop['upload_url']='https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'.$row['country'].'&id='.$row['id'].'&lat='.$row['lat'].'&lon='.$row['lon'];
 	$prop['markercolor']='#ff8888';

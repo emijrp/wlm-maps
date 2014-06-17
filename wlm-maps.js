@@ -64,7 +64,7 @@ function whenMapMoves(e) {
 function setMarker(feature,latlng) {
     var monument; 
     monument=L.marker(latlng, {'marker-color': '#F00'});
-    monument.bindPopup('<table><tr><td><strong><a href="'+feature.properties.monument_article+'" target="_blank">'+feature.properties.name+'</a></strong></td></tr><tr><td><img src="'+feature.properties.thumb_url+'" /></td></tr><tr><td><a href="'+feature.properties.upload_url+'" target="_blank">Upload</a></td></tr></table>');
+    monument.bindPopup('<table><tr><td><strong><a href="'+feature.properties.monument_article+'" target="_blank">'+feature.properties.name+'</a></strong></td></tr><tr><td><a href="'+feature.properties.image_url+'" target="_blank"><img src="'+feature.properties.thumb_url+'" /></a></td></tr><tr><td><a href="'+feature.properties.upload_url+'" target="_blank">Upload your photo</a></td></tr></table>');
     return monument;
 }
 

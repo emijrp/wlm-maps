@@ -12,3 +12,16 @@ body{
     height:100%;
     border: solid 0px black;
 }
+.overlay {
+    position:absolute; 
+    padding: 6px 8px;
+    font: 30px Arial, Helvetica, sans-serif;
+    color: #223;
+    background-color:rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.title {
+    top:10px;
+    right:40%;
+}
