@@ -81,7 +81,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     }
     $prop['md5']=substr(md5($prop['image']),0,2);
     $prop['commonscat']=str_replace(' ', '_', $row['commonscat']);
-    $prop['markercolor']='#ff8888';
 
     $f=array();
     $geom=array();

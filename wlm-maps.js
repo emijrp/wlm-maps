@@ -22,7 +22,7 @@ function init() {
     
     // a geojson layer
     layerMonuments = L.geoJson(null, {
-        pointToLayer: setMarker
+        pointToLayer: setMarker,
         }
     );
     
@@ -59,6 +59,17 @@ function init() {
 
 function whenMapMoves(e) {
     askForMonuments();
+}
+
+function style(feature) {
+    return {
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.3,
+                fillColor: '#ff0000'
+            };
 }
 
 function setMarker(feature,latlng) {
