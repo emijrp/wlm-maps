@@ -43,7 +43,7 @@ try {
 }
 
 try {
-    $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT 200";
+    $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT 1000";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':left', $left, PDO::PARAM_STR);
     $stmt->bindParam(':right', $right, PDO::PARAM_STR);

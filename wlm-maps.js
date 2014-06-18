@@ -109,6 +109,7 @@ function setMarker(feature,latlng) {
 
 function askForMonuments() {
     var data='bbox=' + map.getBounds().toBBoxString();
+    document.getElementById('wait').style.display = 'block';
     $.ajax({
         url: 'ajaxmonuments.php',
         dataType: 'json',
@@ -120,4 +121,5 @@ function askForMonuments() {
 function showMonuments(ajaxresponse) {
     layerMonuments.clearLayers();
     layerMonuments.addData(ajaxresponse);
+    document.getElementById('wait').style.display = 'none';
 }
