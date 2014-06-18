@@ -6,7 +6,7 @@ A map for the Wiki Loves Monuments photograph contest. It is available in http:/
 Features
 ----
 
-It shows the location of monuments from the Wiki Loves Monuments database https://commons.wikimedia.org/wiki/Commons:Monuments_database
+It shows the location of monuments from the [Wiki Loves Monuments database](https://commons.wikimedia.org/wiki/Commons:Monuments_database).
 
 TODO
 ----
