@@ -63,8 +63,23 @@ function whenMapMoves(e) {
 
 function setMarker(feature,latlng) {
     var monument; 
-    monument=L.marker(latlng, {'marker-color': '#F00'});
-    monument.bindPopup('<table><tr><td><strong><a href="'+feature.properties.monument_article+'" target="_blank">'+feature.properties.name+'</a></strong></td></tr><tr><td><a href="'+feature.properties.image_url+'" target="_blank"><img src="'+feature.properties.thumb_url+'" /></a></td></tr><tr><td><a href="'+feature.properties.upload_url+'" target="_blank">Upload your photo</a></td></tr></table>');
+    monument=L.marker(latlng);
+    popuptext = '<table border=0>';
+    if (feature.properties.monument_article)
+    {
+        popuptext = popuptext + '<tr><td colspan=2><strong><a href="https://'+feature.properties.lang+'.wikipedia.org/wiki/'+feature.properties.monument_article+'" target="_blank">'+feature.properties.name+'</a></strong></td></tr>';
+    }else{
+        popuptext = popuptext + '<tr><td colspan=2><strong>'+feature.properties.name+'</strong></td></tr>';
+    }
+    var thumb_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image;
+    popuptext = popuptext + '<tr><td valign=top><b>ID:</b> '+feature.properties.id+'<br/><b>Country:</b> '+feature.properties.country+'</td><td><a href="https://commons.wikimedia.org/wiki/File:'+feature.properties.image+'" target="_blank"><img src="'+thumb_url+'" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;font-size: 150%;"><a href="https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'&lat='+feature.geometry.coordinates[0]+'&lon='+feature.geometry.coordinates[1]+'" target="_blank"><b>Upload your photo!</b></a></td></tr>';
+    if (feature.properties.commonscat)
+    {
+        popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;">(<a href="https://commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">More images in Commons</a>)</td></tr>';
+    }
+    popuptext = popuptext + '</table>';
+    monument.bindPopup(popuptext);
     return monument;
 }
 
