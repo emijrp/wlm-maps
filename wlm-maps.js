@@ -1,9 +1,11 @@
 /*
- * global variables
+ * Code forked from: https://github.com/chillly/plaques/blob/master/example3.js
  */
 var map; // global map object
 var layerOSM; // the Mapnik base layer of the map
 var layerMonuments; // the geoJson layer to display monuments with
+var withimageicon;
+var withoutimageicon;
 
 // when the whole document has loaded call the init function
 $(document).ready(init);
@@ -14,6 +16,20 @@ function init() {
     var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
     var osmAttrib='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors | <a href="https://commons.wikimedia.org/wiki/Commons:Monuments_database">Monuments database</a> by Wikipedia editors | <a href="https://github.com/emijrp/wlm-maps">Source code</a> in GitHub';
     
+    withimageicon=L.icon({
+    iconUrl: 'icons/withimageicon.png',
+    iconSize: [32, 32], // size of the icon
+    iconAnchor: [16, 31],	// point of the icon which will correspond to marker's location
+    popupAnchor: [0, -16] // point from which the popup should open relative to the iconAnchor
+    });
+
+    withoutimageicon=L.icon({
+    iconUrl: 'icons/withoutimageicon.png',
+    iconSize: [32, 32], // size of the icon
+    iconAnchor: [16, 31],	// point of the icon which will correspond to marker's location
+    popupAnchor: [0, -16] // point from which the popup should open relative to the iconAnchor
+    });
+
     layerOSM = new L.TileLayer(osmUrl, {
         minZoom: 2, 
         maxZoom: 19, 
@@ -61,20 +77,8 @@ function whenMapMoves(e) {
     askForMonuments();
 }
 
-function style(feature) {
-    return {
-                weight: 2,
-                opacity: 1,
-                color: 'white',
-                dashArray: '3',
-                fillOpacity: 0.3,
-                fillColor: '#ff0000'
-            };
-}
-
 function setMarker(feature,latlng) {
-    var monument; 
-    monument=L.marker(latlng);
+    var popuptext;
     popuptext = '<table border=0>';
     if (feature.properties.monument_article)
     {
@@ -90,6 +94,15 @@ function setMarker(feature,latlng) {
         popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;">(<a href="https://commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">More images in Commons</a>)</td></tr>';
     }
     popuptext = popuptext + '</table>';
+    var icon;
+    if (feature.properties.image != 'Monument_unknown.png')
+    {
+        icon = withimageicon;
+    }else{
+        icon = withoutimageicon;
+    }
+    var monument; 
+    monument=L.marker(latlng, {icon: icon});
     monument.bindPopup(popuptext);
     return monument;
 }
