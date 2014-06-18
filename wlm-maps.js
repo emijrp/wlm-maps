@@ -108,7 +108,12 @@ function setMarker(feature,latlng) {
 }
 
 function askForMonuments() {
-    var data='bbox=' + map.getBounds().toBBoxString();
+    var mobile;
+    mobile = '0';
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        mobile = '1';
+    }
+    var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile;
     document.getElementById('wait').style.display = 'block';
     $.ajax({
         url: 'ajaxmonuments.php',

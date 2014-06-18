@@ -22,7 +22,10 @@ if (isset($_GET['bbox'])) {
 }
 // split the bbox into it's parts
 list($left,$bottom,$right,$top)=explode(",",$bbox);
-
+$mobile='0';
+if (isset($_GET['mobile'])) {
+    $mobile = $_GET['mobile'];
+}
 // open the database
 $dbmycnf = parse_ini_file("../replica.my.cnf");
 $dbuser = $dbmycnf['user'];
@@ -43,7 +46,11 @@ try {
 }
 
 try {
-    $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT 1000";
+    $limit = 1000;
+    if ($mobile == '1'){
+        $limit = 50;
+    }
+    $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT ".$limit;
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':left', $left, PDO::PARAM_STR);
     $stmt->bindParam(':right', $right, PDO::PARAM_STR);
