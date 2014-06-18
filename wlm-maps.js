@@ -110,7 +110,7 @@ function setMarker(feature,latlng) {
 function askForMonuments() {
     var mobile;
     mobile = '0';
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 800 && window.innerHeight <= 600) ) {
         mobile = '1';
     }
     var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile;
