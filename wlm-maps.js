@@ -67,6 +67,9 @@ function init() {
     // add the layers to a layer control
     L.control.layers(baseLayers, overlays).addTo(map);
     
+    var osmGeocoder = new L.Control.OSMGeocoder();
+    map.addControl(osmGeocoder);
+    
     // create the hash url on the browser address line
     var hash = new L.Hash(map);
     
