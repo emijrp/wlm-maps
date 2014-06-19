@@ -51,6 +51,7 @@ function init() {
         zoom: 2,                    // start up zoom level
         layers: [layerOSM,layerMonuments]        // layers to add 
     });
+    L.control.scale().addTo(map);
     
     // create a layer control
     // add the base layers
