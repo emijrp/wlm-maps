@@ -14,4 +14,6 @@ TODO
 ----
 
   * i18n
+  * Filter by country using parameter
+  * Two layers (with/out image?)
 
