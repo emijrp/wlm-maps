@@ -1,33 +1,45 @@
 /*
- * Code forked from: https://github.com/chillly/plaques/blob/master/example3.js
+ * Original code: https://github.com/chillly/plaques/blob/master/example3.js
+ * 
+ * Created by Chris Hill <osm@raggedred.net> and contributors.
+ * Adapted for Wiki Loves Monuments by Emijrp <emijrp@gmail.com>
+ * 
+ * This software and associated documentation files (the "Software") is
+ * released under the CC0 Public Domain Dedication, version 1.0, as
+ * published by Creative Commons. To the extent possible under law, the
+ * author(s) have dedicated all copyright and related and neighboring
+ * rights to the Software to the public domain worldwide. The Software is
+ * distributed WITHOUT ANY WARRANTY.
+ * 
+ * If you did not receive a copy of the CC0 Public Domain Dedication
+ * along with the Software, see
+ * <http://creativecommons.org/publicdomain/zero/1.0/>
  */
-var map; // global map object
-var layerOSM; // the Mapnik base layer of the map
-var layerMonuments; // the geoJson layer to display monuments with
+ 
+var map;
+var layerOSM;
+var layerMonuments;
 var withimageicon;
 var withoutimageicon;
 
-// when the whole document has loaded call the init function
 $(document).ready(init);
 
 function init() {
-    // map stuff
-    // base layer
     var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
     var osmAttrib='Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors | <a href="https://commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Monuments database</a> by Wikipedia editors | <a href="https://github.com/emijrp/wlm-maps" target="_blank">Source code</a> in GitHub';
     
     withimageicon=L.icon({
     iconUrl: 'icons/withimageicon.png',
-    iconSize: [32, 32], // size of the icon
-    iconAnchor: [16, 31],	// point of the icon which will correspond to marker's location
-    popupAnchor: [0, -16] // point from which the popup should open relative to the iconAnchor
+    iconSize: [32, 32],
+    iconAnchor: [16, 31],
+    popupAnchor: [0, -16]
     });
 
     withoutimageicon=L.icon({
     iconUrl: 'icons/withoutimageicon.png',
-    iconSize: [32, 32], // size of the icon
-    iconAnchor: [16, 31],	// point of the icon which will correspond to marker's location
-    popupAnchor: [0, -16] // point from which the popup should open relative to the iconAnchor
+    iconSize: [32, 32],
+    iconAnchor: [16, 31],
+    popupAnchor: [0, -16]
     });
 
     layerOSM = new L.TileLayer(osmUrl, {
@@ -36,41 +48,32 @@ function init() {
         attribution: osmAttrib
     });
     
-    // a geojson layer
     layerMonuments = L.geoJson(null, {
         pointToLayer: setMarker,
         }
     );
-    
-    // set the starting location for the centre of the map
     var start = new L.LatLng(0, 0);    
     
     // create the map
-    map = new L.Map('mapdiv', {        // use the div called mapdiv
-        center: start,                // centre the map as above
-        zoom: 2,                    // start up zoom level
-        layers: [layerOSM,layerMonuments]        // layers to add 
+    map = new L.Map('mapdiv', {
+        center: start,
+        zoom: 2,
+        layers: [layerOSM,layerMonuments]
     });
     L.control.scale().addTo(map);
     
-    // create a layer control
-    // add the base layers
     var baseLayers = {
         "OpenStreetMap": layerOSM
     };
 
-    // add the overlays
     var overlays = {
         "Monuments": layerMonuments
     };
 
-    // add the layers to a layer control
     L.control.layers(baseLayers, overlays).addTo(map);
     
     var osmGeocoder = new L.Control.OSMGeocoder();
     map.addControl(osmGeocoder);
-    
-    // create the hash url on the browser address line
     var hash = new L.Hash(map);
     
     map.on('moveend', whenMapMoves);
@@ -83,7 +86,7 @@ function whenMapMoves(e) {
 
 function setMarker(feature,latlng) {
     var popuptext;
-    popuptext = '<table border=0>';
+    popuptext = '<table border=0 width=300px>';
     if (feature.properties.monument_article)
     {
         popuptext = popuptext + '<tr><td colspan=2><strong><a href="https://'+feature.properties.lang+'.wikipedia.org/wiki/'+feature.properties.monument_article+'" target="_blank">'+feature.properties.name+'</a></strong></td></tr>';
@@ -107,7 +110,7 @@ function setMarker(feature,latlng) {
     }
     var monument; 
     monument=L.marker(latlng, {icon: icon});
-    monument.bindPopup(popuptext);
+    monument.bindPopup(popuptext, {minWidth: 300});
     return monument;
 }
 
