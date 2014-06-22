@@ -1,7 +1,21 @@
 <?php 
-// Code forked from: https://github.com/chillly/plaques/blob/master/ajax/ajxplaques.php
-
-// uncomment below to turn error reporting on
+/* Original code: https://github.com/chillly/plaques/blob/master/ajax/ajxplaques.php
+ * 
+ * Created by Chris Hill <osm@raggedred.net> and contributors.
+ * Adapted for Wiki Loves Monuments by Emijrp <emijrp@gmail.com>
+ * 
+ * This software and associated documentation files (the "Software") is
+ * released under the CC0 Public Domain Dedication, version 1.0, as
+ * published by Creative Commons. To the extent possible under law, the
+ * author(s) have dedicated all copyright and related and neighboring
+ * rights to the Software to the public domain worldwide. The Software is
+ * distributed WITHOUT ANY WARRANTY.
+ * 
+ * If you did not receive a copy of the CC0 Public Domain Dedication
+ * along with the Software, see
+ * <http://creativecommons.org/publicdomain/zero/1.0/>
+ */
+ 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
