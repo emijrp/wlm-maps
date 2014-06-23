@@ -17,3 +17,4 @@ TODO
   * Filter by country using parameter
   * Two layers (with/out image?)
 
+![alt text](https://raw.githubusercontent.com/emijrp/wlm-maps/master/wlm-maps.png)
