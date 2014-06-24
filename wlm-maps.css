@@ -27,9 +27,16 @@ body{
     display: none;
     background-color:rgba(255,100,100,0.8);
 }
+#menu-button {
+    bottom: 50px;
+    left: 40px;
+    display: block;
+    background-color:rgba(100,100,255,0.8);
+}
 .title {
     top:10px;
     left:50px;
     font: 30px Arial, Helvetica, sans-serif;
     background-color:rgba(100,100,255,0.8);
 }
+
