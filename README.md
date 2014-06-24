@@ -17,3 +17,7 @@ TODO
   * Filter by country using parameter
   * Two layers (with/out image?)
 
+See also
+----
+  * [wlm-stats](https://github.com/emijrp/wlm-stats)
+

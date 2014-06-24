@@ -76,6 +76,27 @@ function init() {
     map.addControl(osmGeocoder);
     var hash = new L.Hash(map);
     
+    // sidebar
+    sidebar = L.control.sidebar('sidebar', {
+        position: 'left',
+        autoPan: false,
+    });
+    map.addControl(sidebar);
+    setTimeout(function () {
+        sidebar.show();
+    }, 500);
+    sidebar.setContent('<h1>Wiki Loves Monuments</h1><b>Welcome!</b> ' + 
+        'This is a map for the Wiki Loves Monument 2014 photographic contest.' + 
+        '<h2>Summary</h2>' + 
+        '<table class="wikitable">' + 
+        '<tr><td>TODO</td></tr>' + 
+        '</table>' +
+        '<h2>See also</h2>' + 
+        '<ul><li><a href="http://tools.wmflabs.org/wlm-stats">wlm-stats</a></li>' + 
+        '</ul>' + 
+        ''
+        );
+    
     map.on('moveend', whenMapMoves);
     askForMonuments();
 }
