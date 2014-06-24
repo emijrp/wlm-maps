@@ -5,6 +5,8 @@ A map for the Wiki Loves Monuments photograph contest.
 
 It is available in http://tools.wmflabs.org/wlm-maps/
 
+![alt text](https://raw.githubusercontent.com/emijrp/wlm-maps/master/wlm-maps.png)
+
 Features
 ----
 
