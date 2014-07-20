@@ -82,9 +82,9 @@ function init() {
         autoPan: false,
     });
     map.addControl(sidebar);
-    setTimeout(function () {
+    /*setTimeout(function () {
         sidebar.show();
-    }, 500);
+    }, 500);*/
     sidebar.setContent('<h1>Wiki Loves Monuments</h1><b>Welcome!</b> ' + 
         'This is a map for the <a href="http://www.wikilovesmonuments.org/">Wiki Loves Monument 2014</a> photographic contest.' + 
         '<h2>Summary</h2>' + 
