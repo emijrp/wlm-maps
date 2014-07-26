@@ -25,8 +25,8 @@ var withoutimageicon;
 $(document).ready(init);
 
 function init() {
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
-    var osmAttrib='Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors | <a href="https://commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Monuments database</a> by Wikipedia editors | <a href="https://github.com/emijrp/wlm-maps" target="_blank">Source code</a> in GitHub';
+    var osmUrl='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
+    var osmAttrib='Map data &copy; <a href="//openstreetmap.org" target="_blank">OpenStreetMap</a> contributors | <a href="https://commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Monuments database</a> by Wikipedia editors | <a href="https://github.com/emijrp/wlm-maps" target="_blank">Source code</a> in GitHub';
     
     withimageicon=L.icon({
     iconUrl: 'icons/withimageicon.png',
