@@ -26,7 +26,7 @@ $(document).ready(init);
 
 function init() {
     var osmUrl='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
-    var osmAttrib='Map data &copy; <a href="//openstreetmap.org" target="_blank">OpenStreetMap</a> contributors | <a href="https://commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Monuments database</a> by Wikipedia editors | <a href="https://github.com/emijrp/wlm-maps" target="_blank">Source code</a> in GitHub';
+    var osmAttrib='Map data &copy; <a href="//openstreetmap.org" target="_blank">OpenStreetMap</a> contributors | <a href="https://commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Monuments database</a> by Wikipedia editors | <a href="https://github.com/emijrp/wlm-maps" target="_blank">Source code</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a> in GitHub';
     
     withimageicon=L.icon({
     iconUrl: 'icons/withimageicon.png',
@@ -94,7 +94,7 @@ function init() {
         '</table>' + 
         '<h3>Statistics</h3>' + 
         '<p>There are <a href="http://tools.wmflabs.org/wlm-stats">statistics</a> to compare with previous editions.</p>' + 
-        '<iframe src="http://tools.wmflabs.org/wlm-stats/stats-2014-mini.php" width=330px height=170px frameBorder=0>Browser not compatible.</iframe>' +
+        '<iframe src="http://tools.wmflabs.org/wlm-stats/stats-2014-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
         '<h3>See also</h3>' + 
         '<ul style="margin-left: -20px;">' + 
         '<li><a href="http://tools.wmflabs.org/wmcounter/">wmcounter</a>: Wikimedia projects edits counter</li>' + 
