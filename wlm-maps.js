@@ -82,17 +82,25 @@ function init() {
         autoPan: false,
     });
     map.addControl(sidebar);
-    /*setTimeout(function () {
+    setTimeout(function () {
         sidebar.show();
-    }, 500);*/
-    sidebar.setContent('<h1>Wiki Loves Monuments</h1><b>Welcome!</b> ' + 
-        'This is a map for the <a href="http://www.wikilovesmonuments.org/">Wiki Loves Monument 2014</a> photographic contest.' + 
-        '<h2>Summary</h2>' + 
-        '<table class="wikitable">' + 
-        '<tr><td>TODO</td></tr>' + 
-        '</table>' +
-        '<h2>See also</h2>' + 
-        '<ul><li><a href="http://tools.wmflabs.org/wlm-stats">wlm-stats</a></li>' + 
+    }, 500);
+    sidebar.setContent('<h1>Wiki Loves Monuments</h1>' + 
+        '<p><b>Welcome!</b> This is a map for the <a href="https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2014">Wiki Loves Monument 2014</a> (<a href="http://www.wikilovesmonuments.org">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!</p>' + 
+        '<h3>Legend</h3>' + 
+        '<table border=0 width=300px>' + 
+        '<tr><td><img src="icons/withimageicon.png" /></td><td>Monument with image</td>' + 
+        '<td><img src="icons/withoutimageicon.png" /></td><td>Monument without image</td></tr>' + 
+        '</table>' + 
+        '<h3>Statistics</h3>' + 
+        '<p>There are <a href="http://tools.wmflabs.org/wlm-stats">statistics</a> to compare with previous editions.</p>' + 
+        '<iframe src="http://tools.wmflabs.org/wlm-stats/stats-2014-mini.php" width=330px height=170px frameBorder=0>Browser not compatible.</iframe>' +
+        '<h3>See also</h3>' + 
+        '<ul style="margin-left: -20px;">' + 
+        '<li><a href="http://tools.wmflabs.org/wmcounter/">wmcounter</a>: Wikimedia projects edits counter</li>' + 
+        '<li><a href="http://tools.wmflabs.org/commons-coverage/">Commons-coverage</a>: 1 image/km<sup>2</sup>, we can do it!</li>' + 
+        '<li><a href="https://en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline">There is a deadline</a>: an essay on the importance of preserving knowledge</li>' + 
+        '<li><a href="https://en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge">User:Emijrp/All human knowledge</a> - estimating the number of articles needed to cover all knowledge</li>' + 
         '</ul>' + 
         ''
         );
