@@ -82,8 +82,8 @@ function init() {
         autoPan: false,
     });
     map.addControl(sidebar);
-    setTimeout(function () {
-        sidebar.show();
+    /*setTimeout(function () {
+        sidebar.show();*/
     }, 500);
     sidebar.setContent('<h1>Wiki Loves Monuments</h1>' + 
         '<p><b>Welcome!</b> This is a map for the <a href="https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2014">Wiki Loves Monument 2014</a> (<a href="http://www.wikilovesmonuments.org">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!</p>' + 
