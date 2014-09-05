@@ -93,12 +93,12 @@ function init() {
         '<td><img src="icons/withoutimageicon.png" /></td><td>Monument without image</td></tr>' + 
         '</table>' + 
         '<h3>Statistics</h3>' + 
-        '<p>There are <a href="http://tools.wmflabs.org/wlm-stats">statistics</a> to compare with previous editions.</p>' + 
-        '<iframe src="http://tools.wmflabs.org/wlm-stats/stats-2014-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
+        '<p>There are <a href="//tools.wmflabs.org/wlm-stats">statistics</a> to compare with previous editions.</p>' + 
+        '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2014-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
         '<h3>See also</h3>' + 
         '<ul style="margin-left: -20px;">' + 
-        '<li><a href="http://tools.wmflabs.org/wmcounter/">wmcounter</a>: Wikimedia projects edits counter</li>' + 
-        '<li><a href="http://tools.wmflabs.org/commons-coverage/">Commons-coverage</a>: 1 image/km<sup>2</sup>, we can do it!</li>' + 
+        '<li><a href="//tools.wmflabs.org/wmcounter/">wmcounter</a>: Wikimedia projects edits counter</li>' + 
+        '<li><a href="//tools.wmflabs.org/commons-coverage/">Commons-coverage</a>: 1 image/km<sup>2</sup>, we can do it!</li>' + 
         '<li><a href="https://en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline">There is a deadline</a>: an essay on the importance of preserving knowledge</li>' + 
         '<li><a href="https://en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge">User:Emijrp/All human knowledge</a> - estimating the number of articles needed to cover all knowledge</li>' + 
         '</ul>' + 
