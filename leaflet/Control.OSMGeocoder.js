@@ -99,7 +99,7 @@ L.Control.OSMGeocoder = L.Control.extend({
     },
     _isLatLon_decMin : function (q) {
         console.log("is LatLon?: "+q);
-        //N 53Â° 13.785' E 010Â° 23.887'
+        //N 53° 13.785' E 010° 23.887'
         //re = /[NS]\s*(\d+)\D*(\d+\.\d+).?\s*[EW]\s*(\d+)\D*(\d+\.\d+)\D*/;
         re = /([ns])\s*(\d+)\D*(\d+\.\d+).?\s*([ew])\s*(\d+)\D*(\d+\.\d+)/i;
         m = re.exec(q.toLowerCase());
@@ -171,7 +171,8 @@ L.Control.OSMGeocoder = L.Control.extend({
 			}
 		}
 
-		var url = " http://nominatim.openstreetmap.org/search" + L.Util.getParamString(params),
+		var protocol = location.protocol;
+		var url = protocol + "//nominatim.openstreetmap.org/search" + L.Util.getParamString(params),
 		script = document.createElement("script");
 
 
