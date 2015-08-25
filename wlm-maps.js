@@ -86,7 +86,7 @@ function init() {
         sidebar.show();
     }, 500);*/
     sidebar.setContent('<h1>Wiki Loves Monuments</h1>' + 
-        '<p><img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/LUSITANA_WLM_2011_d.svg/70px-LUSITANA_WLM_2011_d.svg.png" align=right /><b>Welcome!</b> This is a map for the <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2014" target="_blank">Wiki Loves Monument 2014</a> (<a href="//www.wikilovesmonuments.org" target="_blank">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!</p>' + 
+        '<p><img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/LUSITANA_WLM_2011_d.svg/70px-LUSITANA_WLM_2011_d.svg.png" align=right /><b>Welcome!</b> This is a map for the <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monument 2015</a> (<a href="//www.wikilovesmonuments.org" target="_blank">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!</p>' + 
         '<h3>Legend</h3>' + 
         '<table border=0 width=300px>' + 
         '<tr><td><img src="icons/withimageicon.png" /></td><td>Monument with image</td>' + 
@@ -94,7 +94,7 @@ function init() {
         '</table>' + 
         '<h3>Statistics</h3>' + 
         '<p>There are <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistics</a> to compare with previous editions.</p>' + 
-        '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2014-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
+        '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2015-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
         '<h3>See also</h3>' + 
         '<ul style="margin-left: -20px;">' + 
         '<li><a href="//tools.wmflabs.org/wmcounter/" target="_blank">wmcounter</a>: Wikimedia projects edits counter</li>' + 
