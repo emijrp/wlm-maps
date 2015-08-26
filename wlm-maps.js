@@ -21,8 +21,161 @@ var layerOSM;
 var layerMonuments;
 var withimageicon;
 var withoutimageicon;
+var browserlang;
+
+if (navigator.systemLanguage) {
+    browserlang = navigator.systemLanguage;
+}else if (navigator.userLanguage) {
+    browserlang = navigator.userLanguage;
+}else if(navigator.language) {
+    browserlang = navigator.language;
+}else {
+    browserlang = 'en';
+}
+browserlang = browserlang.split('-')[0];
 
 $(document).ready(init);
+
+function translatemsg (msg) {
+    var msg2 = msg;
+    switch (msg) {
+       case 'welcome':
+           switch (browserlang) {
+               case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="//www.wikilovesmonuments.org" target="_blank">blog</a>). ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
+
+               default: msg2 = '<b>Welcome!</b> This is a map for the <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="//www.wikilovesmonuments.org" target="_blank">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!';
+           }
+           break;
+       
+       
+       case 'legend':
+           switch (browserlang) {
+               case 'es': msg2 = 'Leyenda'; break;
+               
+               default: msg2 = 'Legend';
+           }
+           break;
+       
+       
+       case 'monument-with-image':
+           switch (browserlang) {
+               case 'es': msg2 = 'Monumento con foto'; break;
+               
+               default: msg2 = 'Monument with image';
+           }
+           break;
+       
+       
+       case 'monument-without-image':
+           switch (browserlang) {
+               case 'es': msg2 = 'Monumento sin foto'; break;
+               
+               default: msg2 = 'Monument without image';
+           }
+           break;
+       
+       
+       case 'statistics':
+           switch (browserlang) {
+               case 'es': msg2 = 'Estadísticas'; break;
+               
+               default: msg2 = 'Statistics';
+           }
+           break;
+       
+       
+       case 'statistics-description':
+           switch (browserlang) {
+               case 'es': msg2 = 'Consulta las <a href="//tools.wmflabs.org/wlm-stats" target="_blank">estadísticas</a> de ediciones anteriores.'; break;
+               
+               default: msg2 = 'There are <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistics</a> to compare with previous editions.';
+           }
+           break;
+       
+       
+       case 'see-also':
+           switch (browserlang) {
+               case 'es': msg2 = 'Véase también'; break;
+               
+               default: msg2 = 'See also';
+           }
+           break;
+       
+       
+       case 'wmcounter':
+           switch (browserlang) {
+               case 'es': msg2 = 'Contador de ediciones de todos los proyectos Wikimedia'; break;
+               
+               default: msg2 = 'Wikimedia projects edits counter';
+           }
+           break;
+       
+       
+       case 'commons-coverage':
+           switch (browserlang) {
+               case 'es': msg2 = '1 imagen/km<sup>2</sup>, ¡podemos hacerlo!'; break;
+               
+               default: msg2 = '1 image/km<sup>2</sup>, we can do it!';
+           }
+           break;
+       
+       
+       case 'deadline':
+           switch (browserlang) {
+               case 'es': msg2 = 'un ensayo sobre la importancia de preservar el conocimiento'; break;
+               
+               default: msg2 = 'an essay on the importance of preserving knowledge';
+           }
+           break;
+       
+       
+       case 'ahk':
+           switch (browserlang) {
+               case 'es': msg2 = 'estimación del número de artículos necesarios para abarcar todo el conocimiento'; break;
+               
+               default: msg2 = 'estimating the number of articles needed to cover all knowledge';
+           }
+           break;
+       
+       
+       case 'country':
+           switch (browserlang) {
+               case 'es': msg2 = 'País'; break;
+               
+               default: msg2 = 'Country';
+           }
+           break;
+       
+       
+       case 'show-menu':
+           switch (browserlang) {
+               case 'es': msg2 = 'Mostrar menú'; break;
+               
+               default: msg2 = 'Show menu';
+           }
+           break;
+       
+       
+       case 'upload-your-photo':
+           switch (browserlang) {
+               case 'es': msg2 = '¡Sube tu foto!'; break;
+               
+               default: msg2 = 'Upload your photo!';
+           }
+           break;
+       
+       
+       case 'loading':
+           switch (browserlang) {
+               case 'es': msg2 = 'Cargando... espere por favor'; break;
+               
+               default: msg2 = 'Loading... please wait';
+           }
+           break;
+           
+    }
+    return msg2;
+}
 
 function init() {
     var osmUrl='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
@@ -86,21 +239,24 @@ function init() {
         sidebar.show();
     }, 500);*/
     sidebar.setContent('<h1>Wiki Loves Monuments</h1>' + 
-        '<p><img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/LUSITANA_WLM_2011_d.svg/70px-LUSITANA_WLM_2011_d.svg.png" align=right /><b>Welcome!</b> This is a map for the <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monument 2015</a> (<a href="//www.wikilovesmonuments.org" target="_blank">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!</p>' + 
-        '<h3>Legend</h3>' + 
+        '<p><img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/LUSITANA_WLM_2011_d.svg/70px-LUSITANA_WLM_2011_d.svg.png" align=right />' + translatemsg('welcome') + '</p>' + 
+        
+        '<h3>' + translatemsg('legend') + '</h3>' + 
         '<table border=0 width=300px>' + 
-        '<tr><td><img src="icons/withimageicon.png" /></td><td>Monument with image</td>' + 
-        '<td><img src="icons/withoutimageicon.png" /></td><td>Monument without image</td></tr>' + 
+        '<tr><td><img src="icons/withimageicon.png" /></td><td>' + translatemsg('monument-with-image') + '</td>' + 
+        '<td><img src="icons/withoutimageicon.png" /></td><td>' + translatemsg('monument-without-image') + '</td></tr>' + 
         '</table>' + 
-        '<h3>Statistics</h3>' + 
-        '<p>There are <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistics</a> to compare with previous editions.</p>' + 
+        
+        '<h3>' + translatemsg('statistics') + '</h3>' + 
+        '<p>' + translatemsg('statistics-description') + '</p>' + 
         '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2015-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
-        '<h3>See also</h3>' + 
+        
+        '<h3>' + translatemsg('see-also') + '</h3>' + 
         '<ul style="margin-left: -20px;">' + 
-        '<li><a href="//tools.wmflabs.org/wmcounter/" target="_blank">wmcounter</a>: Wikimedia projects edits counter</li>' + 
-        '<li><a href="//tools.wmflabs.org/commons-coverage/" target="_blank">Commons Coverage</a>: 1 image/km<sup>2</sup>, we can do it!</li>' + 
-        '<li><a href="//en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline" target="_blank">There is a deadline</a>: an essay on the importance of preserving knowledge</li>' + 
-        '<li><a href="//en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge" target="_blank">User:Emijrp/All human knowledge</a> - estimating the number of articles needed to cover all knowledge</li>' + 
+        '<li><a href="//tools.wmflabs.org/wmcounter/" target="_blank">wmcounter</a>: ' + translatemsg('wmcounter') + '</li>' + 
+        '<li><a href="//tools.wmflabs.org/commons-coverage/" target="_blank">Commons Coverage</a>: ' + translatemsg('commons-coverage') + '</li>' + 
+        '<li><a href="//en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline" target="_blank">There is a deadline</a>: ' + translatemsg('deadline') + '</li>' + 
+        '<li><a href="//en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge" target="_blank">User:Emijrp/All human knowledge</a> - ' + translatemsg('ahk') + '</li>' + 
         '</ul>' + 
         ''
         );
@@ -129,11 +285,11 @@ function setMarker(feature,latlng) {
         case 'de': anchorid = '#objektid-'+feature.properties.id; break;
     }
     
-    popuptext = popuptext + '<tr><td valign=top><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>Country:</b> '+feature.properties.country+'</td><td><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image+'" target="_blank"><img src="'+thumb_url+'" /></a></td></tr>';
-    popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;font-size: 150%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>Upload your photo!</b></a></td></tr>';
+    popuptext = popuptext + '<tr><td valign=top><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+feature.properties.country+'</td><td><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image+'" target="_blank"><img src="'+thumb_url+'" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;font-size: 150%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b></a></td></tr>';
     if (feature.properties.commonscat)
     {
-        popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;">(<a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">More images in Commons</a>)</td></tr>';
+        popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;">(<a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">Wikimedia Commons</a>)</td></tr>';
     }
     popuptext = popuptext + '</table>';
     var icon;

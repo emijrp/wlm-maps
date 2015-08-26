@@ -21,7 +21,9 @@
     <div id="mapdiv"></div>
     <div id="sidebar"><h1>leaflet-sidebar</h1></div>
     <div class="overlay title">Wiki Loves Monuments</div>
-    <div id="wait" class="overlay">Loading... Please wait</div>
-    <div id="menu-button" class="overlay"><a href="#" onclick="sidebar.show();return false;">Show menu</a></div>
+    <div id="wait" class="overlay"><script>document.write(translatemsg('loading'));</script></div>
+    <div id="menu-button" class="overlay">
+        <a href="#" onclick="sidebar.show();return false;"><script>document.write(translatemsg('show-menu'));</script></a>
+    </div>
 </body>
 </html>
