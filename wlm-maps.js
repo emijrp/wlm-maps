@@ -22,6 +22,8 @@ var layerMonuments;
 var withimageicon;
 var withoutimageicon;
 var browserlang;
+var withimage;
+var withoutimage;
 
 if (navigator.systemLanguage) {
     browserlang = navigator.systemLanguage;
@@ -209,7 +211,7 @@ function translatemsg (msg) {
        
        case 'loading':
            switch (browserlang) {
-               case 'fr': msg2 = 'Loading... please wait'; break;
+               case 'fr': msg2 = 'Chargement en cours... merci de patienter'; break;
                case 'es': msg2 = 'Cargando... espere por favor'; break;
                case 'se': msg2 = 'Laddar--- vänligen vänta'; break;
                case 'uk': msg2 = 'Завантажується... будь ласка, зачекайте'; break;
@@ -288,8 +290,8 @@ function init() {
         
         '<h3>' + translatemsg('legend') + '</h3>' + 
         '<table border=0 width=300px>' + 
-        '<tr><td><img src="icons/withimageicon.png" /></td><td>' + translatemsg('monument-with-image') + '</td>' + 
-        '<td><img src="icons/withoutimageicon.png" /></td><td>' + translatemsg('monument-without-image') + '</td></tr>' + 
+        '<tr><td><img src="icons/withimageicon.png" /></td><td>' + translatemsg('monument-with-image') + ' (<span id="withimage">&nbsp;</span>)</td>' + 
+        '<td><img src="icons/withoutimageicon.png" /></td><td>' + translatemsg('monument-without-image') + ' (<span id="withoutimage">&nbsp;</span>)</td></tr>' + 
         '</table>' + 
         
         '<h3>' + translatemsg('statistics') + '</h3>' + 
@@ -341,8 +343,10 @@ function setMarker(feature,latlng) {
     if (feature.properties.image != 'Monument_unknown.png')
     {
         icon = withimageicon;
+        withimage = withimage + 1;
     }else{
         icon = withoutimageicon;
+        withoutimage = withoutimage + 1;
     }
     var monument; 
     monument=L.marker(latlng, {icon: icon});
@@ -368,6 +372,9 @@ function askForMonuments() {
 
 function showMonuments(ajaxresponse) {
     layerMonuments.clearLayers();
+    withimage = 0; withoutimage = 0;
     layerMonuments.addData(ajaxresponse);
     document.getElementById('wait').style.display = 'none';
+    document.getElementById('withimage').innerHTML = withimage + ', ' + (withimage / ((withimage + withoutimage)/100.0)) + '%';
+    document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + (withoutimage / ((withimage + withoutimage)/100.0)) + '%';
 }
