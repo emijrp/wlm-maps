@@ -43,6 +43,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Rechercher des monuments proche de vous, prenez des photos et importez-les !'; break;
                case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
+               case 'uk': msg2 = 'Привіт! Це карта для фотоконкурсу <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Шукайте пам\'ятки біля Вас, робіть фотографії та вантажте їх!'; break;
 
                default: msg2 = '<b>Welcome!</b> This is a map for the <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!';
            }
@@ -53,6 +54,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Légende'; break;
                case 'es': msg2 = 'Leyenda'; break;
+               case 'uk': msg2 = 'Легенда'; break;
                
                default: msg2 = 'Legend';
            }
@@ -63,6 +65,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Monument avec image'; break;
                case 'es': msg2 = 'Monumento con foto'; break;
+               case 'uk': msg2 = 'Пам\'ятка із фото'; break;
                
                default: msg2 = 'Monument with image';
            }
@@ -73,6 +76,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Monument sans image'; break;
                case 'es': msg2 = 'Monumento sin foto'; break;
+               case 'uk': msg2 = 'Пам\'ятка без фото'; break;
                
                default: msg2 = 'Monument without image';
            }
@@ -83,6 +87,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Statistiques'; break;
                case 'es': msg2 = 'Estadísticas'; break;
+               case 'uk': msg2 = 'Статистика'; break;
                
                default: msg2 = 'Statistics';
            }
@@ -93,6 +98,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Il y a des <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistiques</a> pour comparer avec les éditions précédentes.'; break;
                case 'es': msg2 = 'Consulta las <a href="//tools.wmflabs.org/wlm-stats" target="_blank">estadísticas</a> de ediciones anteriores.'; break;
+               case 'uk': msg2 = '<a href="//tools.wmflabs.org/wlm-stats" target="_blank">Статистика</a> для порівняння з попередніми конкурсами.'; break;
                
                default: msg2 = 'There are <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistics</a> to compare with previous editions.';
            }
@@ -103,6 +109,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Voir aussi'; break;
                case 'es': msg2 = 'Véase también'; break;
+               case 'uk': msg2 = 'Див. також'; break;
                
                default: msg2 = 'See also';
            }
@@ -113,6 +120,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'compteur de contributions sur les projets Wikimédia'; break;
                case 'es': msg2 = 'Contador de ediciones de todos los proyectos Wikimedia'; break;
+               case 'uk': msg2 = 'лічильник редагувань у проектах Вікімедіа'; break;
                
                default: msg2 = 'Wikimedia projects edits counter';
            }
@@ -123,6 +131,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'une image par km<sup>2</sup>, c\'est possible !'; break;
                case 'es': msg2 = '1 imagen/km<sup>2</sup>, ¡podemos hacerlo!'; break;
+               case 'uk': msg2 = '1 зображення на км<sup>2</sup>, ми це зможемо!'; break;
                
                default: msg2 = '1 image/km<sup>2</sup>, we can do it!';
            }
@@ -133,6 +142,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'un essai sur l\'importance de la préservation de la connaissance'; break;
                case 'es': msg2 = 'un ensayo sobre la importancia de preservar el conocimiento'; break;
+               case 'uk': msg2 = 'допис про важливість зберігати знання'; break;
                
                default: msg2 = 'an essay on the importance of preserving knowledge';
            }
@@ -143,6 +153,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'estimation du nombre d\'articles nécessaires pour couvrir l\'intégralité des connaissances'; break;
                case 'es': msg2 = 'estimación del número de artículos necesarios para abarcar todo el conocimiento'; break;
+               case 'uk': msg2 = 'скільки треба статей, щоб охопити всю сукупність знань'; break;
                
                default: msg2 = 'estimating the number of articles needed to cover all knowledge';
            }
@@ -153,6 +164,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Pays'; break;
                case 'es': msg2 = 'País'; break;
+               case 'uk': msg2 = 'Країна'; break;
                
                default: msg2 = 'Country';
            }
@@ -163,6 +175,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Montrer le menu'; break;
                case 'es': msg2 = 'Mostrar menú'; break;
+               case 'uk': msg2 = 'Показати меню'; break;
                
                default: msg2 = 'Show menu';
            }
@@ -173,6 +186,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Importer votre photo !'; break;
                case 'es': msg2 = '¡Sube tu foto!'; break;
+               case 'uk': msg2 = 'Завантажити власні фото!'; break;
                
                default: msg2 = 'Upload your photo!';
            }
@@ -183,6 +197,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Loading... please wait'; break;
                case 'es': msg2 = 'Cargando... espere por favor'; break;
+               case 'uk': msg2 = 'Завантажується... будь ласка, зачекайте'; break;
                
                default: msg2 = 'Loading... please wait';
            }
