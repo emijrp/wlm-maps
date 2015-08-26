@@ -64,7 +64,7 @@ try {
     if ($mobile == '1'){
         $limit = 50;
     }
-    $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT ".$limit;
+    $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random, source FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT ".$limit;
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':left', $left, PDO::PARAM_STR);
     $stmt->bindParam(':right', $right, PDO::PARAM_STR);
@@ -102,6 +102,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     }
     $prop['md5']=substr(md5($prop['image']),0,2);
     $prop['commonscat']=str_replace(' ', '_', $row['commonscat']);
+    $prop['source']=str_replace(' ', '_', preg_split('/&redirect=no/', $row['source'])[0]);
 
     $f=array();
     $geom=array();
