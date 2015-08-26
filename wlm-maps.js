@@ -375,6 +375,6 @@ function showMonuments(ajaxresponse) {
     withimage = 0; withoutimage = 0;
     layerMonuments.addData(ajaxresponse);
     document.getElementById('wait').style.display = 'none';
-    document.getElementById('withimage').innerHTML = withimage + ', ' + (withimage / ((withimage + withoutimage)/100.0)) + '%';
-    document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + (withoutimage / ((withimage + withoutimage)/100.0)) + '%';
+    document.getElementById('withimage').innerHTML = withimage + ', ' + Number((withimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
+    document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + Number((withoutimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
 }
