@@ -305,6 +305,8 @@ function init() {
         '<li><a href="//en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline" target="_blank">There is a deadline</a>: ' + translatemsg('deadline') + '</li>' + 
         '<li><a href="//en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge" target="_blank">User:Emijrp/All human knowledge</a> - ' + translatemsg('ahk') + '</li>' + 
         '</ul>' + 
+        
+        '<p><i><a href="//en.wikipedia.org/wiki/User:Emijrp/Wiki_Loves_Monuments_map" target="_blank"><i>Translate this map into your language!</i></a></p>' + 
         ''
         );
     
