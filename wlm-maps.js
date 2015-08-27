@@ -717,11 +717,18 @@ function showRecentlyUploaded(ajaxresponse) {
     
     var gallery = '<table id="gallery-table">';
     for (i=0; i<images.length; i++) {
-        img = images[i].properties.img_title;
-        uploader = images[i].properties.uploader;
-        upload_date = images[i].properties.upload_date;
-        md5 = images[i].properties.md5;
-        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img + '/120px-' + img + '" title="By ' + uploader +', X minutes ago"/></a></td>';
+        var img = images[i].properties.img_title;
+        var uploader = images[i].properties.uploader;
+        var upload_date = images[i].properties.upload_date;
+        var md5 = images[i].properties.md5;
+        
+        var pattern = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/;
+        var dt = new Date(upload_date.replace(pattern,'$1-$2-$3T$4:$5:$6'));
+        var now = new Date(); 
+        var now_utc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+        var datediff = Math.round((now_utc - dt)/1000/60);
+        
+        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img + '/150px-' + img + '" title="By ' + uploader +', ' + datediff + ' minutes ago"/></a></td>';
     }
     gallery = gallery + "</table>";
     document.getElementById('gallery-div').innerHTML = gallery;

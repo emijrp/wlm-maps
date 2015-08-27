@@ -60,7 +60,7 @@ try {
 }
 
 try {
-    $limit = 1000;
+    $limit = 500;
     if ($mobile == '1'){
         $limit = 50;
     }
