@@ -656,14 +656,18 @@ function setMarker(feature,latlng) {
     switch (fileext) {
         case 'svg':
         var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image + '.png';
+        var thumb_local_url = '//upload.wikimedia.org/wikipedia/' + feature.properties.lang + '/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image + '.png';
         break;
         
+        case 'tif':
         case 'tiff':
         var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/lossless-page1-150px-' + feature.properties.image + '.png';
+        var thumb_local_url = '//upload.wikimedia.org/wikipedia/' + feature.properties.lang + '/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/lossless-page1-150px-' + feature.properties.image + '.png';
         break;
         
         default:
         var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image;
+        var thumb_local_url = '//upload.wikimedia.org/wikipedia/' + feature.properties.lang + '/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image;
     }
     
     var anchorid = '';
@@ -671,7 +675,7 @@ function setMarker(feature,latlng) {
         case 'de': anchorid = '#objektid-'+feature.properties.id; break;
     }
     
-    popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+translatemsg('country-'+feature.properties.country)+'</td><td rowspan=3><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+translatemsg('country-'+feature.properties.country)+'</td><td rowspan=3><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=\'' + thumb_local_url.replace(/"/g, '%22') + '\';this.parentElement.href=this.parentElement.href.replace(/commons.wikimedia.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></td></tr>';
     popuptext = popuptext + '<tr><td style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b><br/><img src="icons/upload.png" width="40px" /></a></td></tr>';
     if (feature.properties.commonscat)
     {
