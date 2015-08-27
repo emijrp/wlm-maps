@@ -43,7 +43,7 @@ function translatemsg (msg) {
     switch (msg) {
        case 'welcome':
            switch (browserlang) {
-               case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Rechercher des monuments proche de vous, prenez des photos et importez-les !'; break;
+               case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Cherchez monuments proche de vous, prenez des photos et importez-les !'; break;
                case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
                case 'se': msg2 = 'Välkommen! Detta är en karta för fototävlngen <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Hitta monument nära dig, ta bilder och ladda upp dem!'; break;
                case 'uk': msg2 = 'Привіт! Це карта для фотоконкурсу <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Шукайте пам\'ятки біля Вас, робіть фотографії та вантажте їх!'; break;
@@ -219,7 +219,305 @@ function translatemsg (msg) {
                default: msg2 = 'Loading... please wait';
            }
            break;
-           
+        
+        
+       case 'country-aq':
+           switch (browserlang) {
+               case 'es': msg2 = 'Antártida'; break;
+               
+               default: msg2 = 'Antarctica';
+           }
+           break;
+        
+        
+       case 'country-at':
+           switch (browserlang) {
+               case 'es': msg2 = 'Austria'; break;
+               
+               default: msg2 = 'Austria';
+           }
+           break;
+        
+        
+       case 'country-ch':
+           switch (browserlang) {
+               case 'es': msg2 = 'Suiza'; break;
+               
+               default: msg2 = 'Switzerland';
+           }
+           break;
+        
+        
+       case 'country-cn':
+           switch (browserlang) {
+               case 'es': msg2 = 'China'; break;
+               
+               default: msg2 = 'China';
+           }
+           break;
+        
+        
+       case 'country-cz':
+           switch (browserlang) {
+               case 'es': msg2 = 'República Checa'; break;
+               
+               default: msg2 = 'Czech Republic';
+           }
+           break;
+        
+        
+       case 'country-dz':
+           switch (browserlang) {
+               case 'es': msg2 = 'Argelia'; break;
+               
+               default: msg2 = 'Algeria';
+           }
+           break;
+        
+        
+       case 'country-ee':
+           switch (browserlang) {
+               case 'es': msg2 = 'Estonia'; break;
+               
+               default: msg2 = 'Estonia';
+           }
+           break;
+        
+        
+       case 'country-es':
+           switch (browserlang) {
+               case 'es': msg2 = 'España'; break;
+               
+               default: msg2 = 'Spain';
+           }
+           break;
+        
+        
+       case 'country-fr':
+           switch (browserlang) {
+               case 'es': msg2 = 'Francia'; break;
+               
+               default: msg2 = 'France';
+           }
+           break;
+        
+        
+       case 'country-hk':
+           switch (browserlang) {
+               case 'es': msg2 = 'Hong Kong'; break;
+               
+               default: msg2 = 'Hong Kong';
+           }
+           break;
+        
+        
+       case 'country-hu':
+           switch (browserlang) {
+               case 'es': msg2 = 'Hungría'; break;
+               
+               default: msg2 = 'Hungary';
+           }
+           break;
+        
+        
+       case 'country-il':
+           switch (browserlang) {
+               case 'es': msg2 = 'Israel'; break;
+               
+               default: msg2 = 'Israel';
+           }
+           break;
+        
+        
+       case 'country-in':
+           switch (browserlang) {
+               case 'es': msg2 = 'India'; break;
+               
+               default: msg2 = 'India';
+           }
+           break;
+        
+        
+       case 'country-it':
+           switch (browserlang) {
+               case 'es': msg2 = 'Italia'; break;
+               
+               default: msg2 = 'Italy';
+           }
+           break;
+        
+        
+       case 'country-it-bz':
+           switch (browserlang) {
+               case 'es': msg2 = 'Italia'; break;
+               
+               default: msg2 = 'Italy';
+           }
+           break;
+        
+        
+       case 'country-jp-nhs':
+           switch (browserlang) {
+               case 'es': msg2 = 'Japón'; break;
+               
+               default: msg2 = 'Japan';
+           }
+           break;
+        
+        
+       case 'country-ke':
+           switch (browserlang) {
+               case 'es': msg2 = 'Kenia'; break;
+               
+               default: msg2 = 'Kenya';
+           }
+           break;
+        
+        
+       case 'country-mt':
+           switch (browserlang) {
+               case 'es': msg2 = 'Malta'; break;
+               
+               default: msg2 = 'Malta';
+           }
+           break;
+        
+        
+       case 'country-nl':
+           switch (browserlang) {
+               case 'es': msg2 = 'Países Bajos'; break;
+               
+               default: msg2 = 'The Netherlands';
+           }
+           break;
+        
+        
+       case 'country-nl-gem':
+           switch (browserlang) {
+               case 'es': msg2 = 'Países Bajos'; break;
+               
+               default: msg2 = 'The Netherlands';
+           }
+           break;
+        
+        
+       case 'country-no':
+           switch (browserlang) {
+               case 'es': msg2 = 'Noruega'; break;
+               
+               default: msg2 = 'Norway';
+           }
+           break;
+        
+        
+       case 'country-ph':
+           switch (browserlang) {
+               case 'es': msg2 = 'Filipinas'; break;
+               
+               default: msg2 = 'Philippines';
+           }
+           break;
+        
+        
+       case 'country-pl':
+           switch (browserlang) {
+               case 'es': msg2 = 'Polonia'; break;
+               
+               default: msg2 = 'Poland';
+           }
+           break;
+        
+        
+       case 'country-pt':
+           switch (browserlang) {
+               case 'es': msg2 = 'Portugal'; break;
+               
+               default: msg2 = 'Portugal';
+           }
+           break;
+        
+        
+       case 'country-ro':
+           switch (browserlang) {
+               case 'es': msg2 = 'Rumanía'; break;
+               
+               default: msg2 = 'Romania';
+           }
+           break;
+        
+        
+       case 'country-ru':
+           switch (browserlang) {
+               case 'es': msg2 = 'Rusia'; break;
+               
+               default: msg2 = 'Russia';
+           }
+           break;
+        
+        
+       case 'country-se-fornmin':
+           switch (browserlang) {
+               case 'es': msg2 = 'Suecia'; break;
+               
+               default: msg2 = 'Sweden';
+           }
+           break;
+        
+        
+       case 'country-sk':
+           switch (browserlang) {
+               case 'es': msg2 = 'Eslovaquia'; break;
+               
+               default: msg2 = 'Slovakia';
+           }
+           break;
+        
+        
+       case 'country-th':
+           switch (browserlang) {
+               case 'es': msg2 = 'Tailandia'; break;
+               
+               default: msg2 = 'Thailand';
+           }
+           break;
+        
+        
+       case 'country-tn':
+           switch (browserlang) {
+               case 'es': msg2 = 'Túnez'; break;
+               
+               default: msg2 = 'Tunisia';
+           }
+           break;
+        
+        
+       case 'country-ua':
+           switch (browserlang) {
+               case 'es': msg2 = 'Ucrania'; break;
+               
+               default: msg2 = 'Ukraine';
+           }
+           break;
+        
+        
+       case 'country-us':
+           switch (browserlang) {
+               case 'es': msg2 = 'Estados Unidos'; break;
+               
+               default: msg2 = 'United States';
+           }
+           break;
+        
+        
+       case 'country-za':
+           switch (browserlang) {
+               case 'es': msg2 = 'Sudáfrica'; break;
+               
+               default: msg2 = 'South Africa';
+           }
+           break;
+        
+        
     }
     return msg2;
 }
@@ -334,11 +632,11 @@ function setMarker(feature,latlng) {
         case 'de': anchorid = '#objektid-'+feature.properties.id; break;
     }
     
-    popuptext = popuptext + '<tr><td valign=top><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+feature.properties.country+'</td><td><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image+'" target="_blank"><img src="'+thumb_url+'" /></a></td></tr>';
-    popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;font-size: 150%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b></a></td></tr>';
+    popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+translatemsg('country-'+feature.properties.country)+'</td><td rowspan=3><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image+'" target="_blank"><img src="'+thumb_url+'" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b></a><br/><img src="icons/upload.png" width="40px" /></td></tr>';
     if (feature.properties.commonscat)
     {
-        popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;">(<a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">Wikimedia Commons</a>)</td></tr>';
+        popuptext = popuptext + '<tr><td style="text-align: center;">(<a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">Wikimedia Commons</a>)</td></tr>';
     }
     popuptext = popuptext + '</table>';
     var icon;
