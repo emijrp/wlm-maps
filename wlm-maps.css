@@ -39,3 +39,6 @@ body{
     font: 20px Arial, Helvetica, sans-serif;
     background-color:rgba(100,100,255,0.8);
 }
+a {
+    text-decoration: none;
+}
