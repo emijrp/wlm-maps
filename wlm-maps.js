@@ -461,6 +461,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-rs':
+           switch (browserlang) {
+               case 'es': msg2 = 'Serbia'; break;
+               
+               default: msg2 = 'Serbia';
+           }
+           break;
+        
+        
        case 'country-ru':
            switch (browserlang) {
                case 'es': msg2 = 'Rusia'; break;
