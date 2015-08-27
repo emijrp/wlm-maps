@@ -102,7 +102,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     }
     $prop['md5']=substr(md5($prop['image']),0,2);
     $prop['commonscat']=str_replace(' ', '_', $row['commonscat']);
-    $prop['source']=str_replace(' ', '_', preg_split('/&redirect=no/', $row['source'])[0]);
+    $prop['source']=str_replace(' ', '_', preg_split('/&[a-z]+=/', $row['source'])[0]);
 
     $f=array();
     $geom=array();
