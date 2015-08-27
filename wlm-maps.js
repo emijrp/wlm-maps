@@ -610,10 +610,12 @@ function init() {
     
     map.on('moveend', whenMapMoves);
     askForMonuments();
+    askForRecentlyUploaded();
 }
 
 function whenMapMoves(e) {
     askForMonuments();
+    askForRecentlyUploaded();
 }
 
 function setMarker(feature,latlng) {
@@ -633,7 +635,7 @@ function setMarker(feature,latlng) {
     }
     
     popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+translatemsg('country-'+feature.properties.country)+'</td><td rowspan=3><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image+'" target="_blank"><img src="'+thumb_url+'" /></a></td></tr>';
-    popuptext = popuptext + '<tr><td style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b></a><br/><img src="icons/upload.png" width="40px" /></td></tr>';
+    popuptext = popuptext + '<tr><td style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b><br/><img src="icons/upload.png" width="40px" /></a></td></tr>';
     if (feature.properties.commonscat)
     {
         popuptext = popuptext + '<tr><td style="text-align: center;">(<a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">Wikimedia Commons</a>)</td></tr>';
@@ -666,7 +668,18 @@ function askForMonuments() {
         url: 'ajaxmonuments.php',
         dataType: 'json',
         data: data,
-        success: showMonuments
+        success: showMonuments,
+        error: function(e) { console.log(e); }
+    });
+}
+
+function askForRecentlyUploaded() {
+    $.ajax({
+        url: 'ajaxrecentlyuploaded.php',
+        dataType: 'json',
+        //data: data,
+        success: showRecentlyUploaded,
+        error: function(e) { console.log(e); }
     });
 }
 
@@ -683,3 +696,19 @@ function showMonuments(ajaxresponse) {
         document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + Number((withoutimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
     }
 }
+
+function showRecentlyUploaded(ajaxresponse) {
+    var images = ajaxresponse['images'];
+    
+    var gallery = '<table id="gallery-table">';
+    for (i=0; i<images.length; i++) {
+        img = images[i].properties.img_title;
+        uploader = images[i].properties.uploader;
+        upload_date = images[i].properties.upload_date;
+        md5 = images[i].properties.md5;
+        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img + '/120px-' + img + '" title="By ' + uploader +', X minutes ago"/></a></td>';
+    }
+    gallery = gallery + "</table>";
+    document.getElementById('gallery-div').innerHTML = gallery;
+}
+

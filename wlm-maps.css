@@ -22,7 +22,7 @@ body{
     border-radius: 5px;
 }
 #wait {
-    bottom: 50px;
+    bottom: 150px;
     right: 40px;
     display: none;
     background-color:rgba(255,100,100,0.8);
@@ -32,6 +32,18 @@ body{
     left: 40px;
     display: block;
     background-color:rgba(100,100,255,0.8);
+}
+#gallery-div {
+    position: absolute;
+    bottom: 18px;
+    right: 0px;
+    border: 2px solid green;
+    height: 100px;
+    overflow: hidden;
+    background-color: green;
+}
+#gallery-table {
+    background-color: green;
 }
 .title {
     top:10px;
