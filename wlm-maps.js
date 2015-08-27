@@ -651,7 +651,20 @@ function setMarker(feature,latlng) {
     }else{
         popuptext = popuptext + '<tr><td colspan=2><strong>'+feature.properties.name+'</strong></td></tr>';
     }
-    var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image;
+    fileext = feature.properties.image.split('.');
+    fileext = fileext[fileext.length-1];
+    switch (fileext) {
+        case 'svg':
+        var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image + '.png';
+        break;
+        
+        case 'tiff':
+        var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/lossless-page1-150px-' + feature.properties.image + '.png';
+        break;
+        
+        default:
+        var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + feature.properties.md5.substring(0,1) + '/' + feature.properties.md5.substring(0,2) + '/' + feature.properties.image + '/150px-' + feature.properties.image;
+    }
     
     var anchorid = '';
     switch (feature.properties.lang) {
@@ -742,7 +755,7 @@ function showRecentlyUploaded(ajaxresponse) {
         if (datediff >= 3600) { datediff2 = Math.round(datediff / 3600); timeunit = datediff2 == 1 ? 'hour' : 'hours'; }
         if (datediff >= 86400) { datediff2 = Math.round(datediff / 86400); timeunit = datediff2 == 1 ? 'day' : 'days'; }
         
-        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img.replace(/"/g, '%22') + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img.replace(/"/g, '%22') + '/150px-' + img.replace(/"/g, '%22') + '" title="By ' + uploader +', ' + datediff2 + ' ' + timeunit + ' ago"/></a></td>';
+        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img.replace(/"/g, '%22') + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img.replace(/"/g, '%22') + '/150px-' + img.replace(/"/g, '%22') + '" title="Uploaded by ' + uploader +', ' + datediff2 + ' ' + timeunit + ' ago"/></a></td>';
     }
     gallery = gallery + "</table>";
     document.getElementById('gallery-div').innerHTML = gallery;
