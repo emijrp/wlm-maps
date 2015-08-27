@@ -649,7 +649,7 @@ function setMarker(feature,latlng) {
         case 'de': anchorid = '#objektid-'+feature.properties.id; break;
     }
     
-    popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+translatemsg('country-'+feature.properties.country)+'</td><td rowspan=3><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image+'" target="_blank"><img src="'+thumb_url+'" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+translatemsg('country-'+feature.properties.country)+'</td><td rowspan=3><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" /></a></td></tr>';
     popuptext = popuptext + '<tr><td style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b><br/><img src="icons/upload.png" width="40px" /></a></td></tr>';
     if (feature.properties.commonscat)
     {
@@ -728,7 +728,7 @@ function showRecentlyUploaded(ajaxresponse) {
         var now_utc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
         var datediff = Math.round((now_utc - dt)/1000/60);
         
-        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img + '/150px-' + img + '" title="By ' + uploader +', ' + datediff + ' minutes ago"/></a></td>';
+        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img.replace(/"/g, '%22') + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img.replace(/"/g, '%22') + '/150px-' + img.replace(/"/g, '%22') + '" title="By ' + uploader +', ' + datediff + ' minutes ago"/></a></td>';
     }
     gallery = gallery + "</table>";
     document.getElementById('gallery-div').innerHTML = gallery;

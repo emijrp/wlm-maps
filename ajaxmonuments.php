@@ -97,6 +97,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $prop['name']=str_replace(array('[', ']'), '', $prop['name'][0]);
     $prop['monument_article']=str_replace(' ' , '_', $row['monument_article']);
     $prop['image']=str_replace(' ', '_', $row['image']);
+    $prop['image']=preg_replace('/_+/', '_', $prop['image']); //remove duplicated spaces
     if (empty($prop['image'])) {
         $prop['image'] = 'Monument_unknown.png';
     }
