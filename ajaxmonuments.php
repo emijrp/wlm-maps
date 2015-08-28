@@ -60,9 +60,9 @@ try {
 }
 
 try {
-    $limit = 500;
+    $limit = 250;
     if ($mobile == '1'){
-        $limit = 50;
+        $limit = 25;
     }
     $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random, source FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT ".$limit;
     $stmt = $db->prepare($sql);
