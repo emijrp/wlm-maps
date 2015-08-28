@@ -707,7 +707,9 @@ function init() {
         ''
         );
     
-    map.on('moveend', whenMapMoves);
+    //map.on('moveend', whenMapMoves);
+    map.on('zoomend', whenMapMoves);
+    map.on('dragend', whenMapMoves);
     askForMonuments();
     askForRecentlyUploaded();
 }
