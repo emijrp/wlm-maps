@@ -31,7 +31,15 @@ body{
     bottom: 50px;
     left: 40px;
     display: block;
+    color: white;
     background-color:rgba(100,100,255,0.8);
+}
+#csv-button {
+    bottom: 50px;
+    left: 200px;
+    display: block;
+    color: white;
+    background-color: pink;
 }
 #gallery-div {
     position: absolute;
@@ -49,7 +57,9 @@ body{
     top:10px;
     left:50px;
     font: 20px Arial, Helvetica, sans-serif;
-    background-color:rgba(100,100,255,0.8);
+    font-weight: bold;
+    color: white;
+    background-color:#A50308;
 }
 a {
     text-decoration: none;

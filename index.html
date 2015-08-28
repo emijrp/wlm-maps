@@ -20,10 +20,13 @@
 <body>
     <div id="mapdiv"></div>
     <div id="sidebar"><h1>leaflet-sidebar</h1></div>
-    <div class="overlay title">Wiki Loves Monuments</div>
+    <div class="overlay title">Wiki Loves Monuments 2015</div>
     <div id="wait" class="overlay"><script>document.write(translatemsg('loading'));</script></div>
     <div id="menu-button" class="overlay">
         <a href="#" onclick="sidebar.show();return false;"><script>document.write(translatemsg('show-menu'));</script></a>
+    </div>
+    <div id="csv-button" class="overlay">
+        <a href="#" download="wlm-monuments.csv" onclick="this.href=encodedCSVUri;">CSV <img src="icons/download.png" /></a>
     </div>
     <div id="gallery-div">
        &nbsp;

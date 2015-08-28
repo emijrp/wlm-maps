@@ -24,6 +24,7 @@ var withoutimageicon;
 var browserlang;
 var withimage;
 var withoutimage;
+var encodedCSVUri;
 
 if (navigator.systemLanguage) {
     browserlang = navigator.systemLanguage;
@@ -785,6 +786,8 @@ function showMonuments(ajaxresponse) {
     withimage = 0; withoutimage = 0;
     layerMonuments.addData(ajaxresponse);
     document.getElementById('wait').style.display = 'none';
+    
+    //counting
     if (withimage + withoutimage == 0) {
         document.getElementById('withimage').innerHTML = '0, 0%';
         document.getElementById('withoutimage').innerHTML = '0, 0%';
@@ -792,6 +795,15 @@ function showMonuments(ajaxresponse) {
         document.getElementById('withimage').innerHTML = withimage + ', ' + Number((withimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
         document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + Number((withoutimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
     }
+    
+    //csv
+    var csvContent = "data:text/csv;charset=utf-8,";
+    for (var i=0;i<ajaxresponse.features.length;i++) {
+        feature = ajaxresponse.features[i];
+        dataString = '"'+feature.properties.id+'","'+feature.properties.country+'","'+feature.properties.name+'","'+feature.geometry.coordinates[1]+','+feature.geometry.coordinates[0]+'"';
+        csvContent += i < ajaxresponse.features.length ? dataString + "\n" : dataString;
+    }
+    encodedCSVUri = encodeURI(csvContent);
 }
 
 function showRecentlyUploaded(ajaxresponse) {
