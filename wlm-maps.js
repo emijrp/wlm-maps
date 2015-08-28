@@ -769,9 +769,13 @@ function init() {
         ''
         );
     
-    //map.on('moveend', whenMapMoves);
-    map.on('zoomend', whenMapMoves);
-    map.on('dragend', whenMapMoves);
+    //Plugin magic goes here! Note that you cannot use the same layer object again, as that will confuse the two map controls
+    var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
+    var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true, zoomLevelOffset: -6 }).addTo(map);
+
+    map.on('moveend', whenMapMoves);
+    //map.on('zoomend', whenMapMoves);
+    //map.on('dragend', whenMapMoves);
     askForMonuments();
     askForRecentlyUploaded();
 }

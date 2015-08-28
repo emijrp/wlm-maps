@@ -24,7 +24,7 @@ body{
 }
 #wait {
     bottom: 150px;
-    right: 40px;
+    right: 15px;
     display: none;
     background-color:rgba(255,100,100,0.8);
 }
@@ -44,8 +44,8 @@ body{
 }
 #gallery-div {
     position: absolute;
-    bottom: 18px;
-    right: 0px;
+    bottom: 25px;
+    right: 175px;
     border: 2px solid green;
     height: 100px;
     overflow: hidden;
@@ -57,7 +57,7 @@ body{
 #notice {
     position: absolute;
     bottom: 200px;
-    right: 40px;
+    right: 15px;
     display: block;
     background-color: lightgreen;
     width: 150px;
