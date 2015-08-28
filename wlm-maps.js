@@ -615,6 +615,7 @@ function translatemsg (msg) {
         
         
        case 'country-us':
+       case 'country-us-ca':
            switch (browserlang) {
                case 'es': msg2 = 'Estados Unidos'; break;
                
@@ -835,7 +836,13 @@ function showMonuments(ajaxresponse) {
     var csvContent = "data:text/csv;charset=utf-8,";
     for (var i=0;i<ajaxresponse.features.length;i++) {
         feature = ajaxresponse.features[i];
-        dataString = '"'+feature.properties.id+'","'+feature.properties.country+'","'+feature.properties.name+'","'+feature.geometry.coordinates[1]+','+feature.geometry.coordinates[0]+'"';
+        id = feature.properties.id;
+        country = feature.properties.country;
+        name = feature.properties.name;
+        name = name.replace(/#.*/, '');
+        lat = feature.geometry.coordinates[1];
+        lon = feature.geometry.coordinates[0];
+        dataString = '"'+id+'","'+country+'","'+name+'","'+lat+','+lon+'"';
         csvContent += i < ajaxresponse.features.length ? dataString + "\n" : dataString;
     }
     encodedCSVUri = encodeURI(csvContent);
