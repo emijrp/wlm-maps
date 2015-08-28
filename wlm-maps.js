@@ -459,6 +459,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-ie':
+           switch (browserlang) {
+               case 'es': msg2 = 'Irlanda'; break;
+               
+               default: msg2 = 'Ireland';
+           }
+           break;
+        
+        
        case 'country-il':
            switch (browserlang) {
                case 'es': msg2 = 'Israel'; break;
