@@ -23,8 +23,8 @@ body{
     border-radius: 5px;
 }
 #wait {
-    bottom: 150px;
-    right: 15px;
+    bottom: 145px;
+    right: 175px;
     display: none;
     background-color:rgba(255,100,100,0.8);
 }
