@@ -38,6 +38,29 @@ browserlang = browserlang.split('-')[0];
 
 $(document).ready(init);
 
+function geohack(latd,lond) {
+    if ( latd != '' ) {
+        sign = latd > 0 ? 1 : -1;
+        lat4 = latd > 0 ? 'N' : 'S';
+        latd *= sign;
+        lat1 = Math.floor ( latd );
+        lat2 = Math.floor ( ( latd - lat1 ) * 60 );
+        lat3 = Math.floor ( ( latd - lat1 - lat2 / 60 ) * 3600 );
+    }
+    
+    if ( lond != '' ) {
+        sign = lond > 0 ? 1 : -1;
+        lon4 = lond > 0 ? 'E' : 'W';
+        lond *= sign;
+        lon1 = Math.floor ( lond ) ;
+        lon2 = Math.floor ( ( lond - lon1 ) * 60 );
+        lon3 = Math.floor ( ( lond - lon1 - lon2 / 60 ) * 3600 );
+    }
+    var p = lat1 + '_' + lat2 + '_' + lat3 + '_' + lat4 + '_';
+    p += lon1 + '_' + lon2 + '_' + lon3 + '_' + lon4;
+    return p;
+}
+
 function translatemsg (msg) {
     var msg2 = msg;
     switch (msg) {
@@ -45,6 +68,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Cherchez monuments proche de vous, prenez des photos et importez-les !'; break;
                case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
+               case 'ne': msg2 = 'तपाईंलाई स्वागत छ! यो <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">विकी लभ्स मोन्युमेन्ट्स २०१५</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>) तस्विर प्रतियोगिताको नक्सा हो । तपाईं नजिकै रहेको धरोहरहरूको तस्विर खिच्नुहोस् र त्यसलाई अपलोड गर्नुहोस!'; break;
                case 'ro': msg2 = 'Bun venit! Aceasta este o hartă pentru concursul de fotografie <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Căutați monumente din preajmă, fotografiați-le și încărcați imaginile!'; break;
                case 'se': msg2 = 'Välkommen! Detta är en karta för fototävlngen <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Hitta monument nära dig, ta bilder och ladda upp dem!'; break;
                case 'uk': msg2 = 'Привіт! Це карта для фотоконкурсу <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Шукайте пам\'ятки біля Вас, робіть фотографії та вантажте їх!'; break;
@@ -58,6 +82,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Légende'; break;
                case 'es': msg2 = 'Leyenda'; break;
+               case 'ne': msg2 = 'लिजेन्ड'; break;
                case 'ro': msg2 = 'Legendă'; break;
                case 'se': msg2 = 'Legend'; break;
                case 'uk': msg2 = 'Легенда'; break;
@@ -71,6 +96,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Monument avec image'; break;
                case 'es': msg2 = 'Monumento con foto'; break;
+               case 'ne': msg2 = 'तस्विर सहितको धरोहर'; break;
                case 'ro': msg2 = 'Monument cu imagine'; break;
                case 'se': msg2 = 'Monument med bild'; break;
                case 'uk': msg2 = 'Пам\'ятка із фото'; break;
@@ -84,6 +110,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Monument sans image'; break;
                case 'es': msg2 = 'Monumento sin foto'; break;
+               case 'ne': msg2 = 'तस्विर विनाको धरोहर'; break;
                case 'ro': msg2 = 'Monument fără imagine'; break;
                case 'se': msg2 = 'Monument utan bild'; break;
                case 'uk': msg2 = 'Пам\'ятка без фото'; break;
@@ -97,6 +124,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Statistiques'; break;
                case 'es': msg2 = 'Estadísticas'; break;
+               case 'ne': msg2 = 'तथ्याङ्कहरू'; break;
                case 'ro': msg2 = 'Statistici'; break;
                case 'se': msg2 = 'Statistik'; break;
                case 'uk': msg2 = 'Статистика'; break;
@@ -110,6 +138,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Il y a des <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistiques</a> pour comparer avec les éditions précédentes.'; break;
                case 'es': msg2 = 'Consulta las <a href="//tools.wmflabs.org/wlm-stats" target="_blank">estadísticas</a> de ediciones anteriores.'; break;
+               case 'ne': msg2 = 'पछिल्लो संस्करणहरूसँग तुलना गर्नका लागी <a href="//tools.wmflabs.org/wlm-stats" target="_blank">तथ्याङ्कहरू</a> रहेका छन् ।'; break;
                case 'ro': msg2 = 'Aici sunt <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistici</a> pentru a compara cu edițiile precedente.'; break;
                case 'se': msg2 = 'Det finns <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistik</a> att jämföra med tidigare år.'; break;
                case 'uk': msg2 = '<a href="//tools.wmflabs.org/wlm-stats" target="_blank">Статистика</a> для порівняння з попередніми конкурсами.'; break;
@@ -123,6 +152,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Voir aussi'; break;
                case 'es': msg2 = 'Véase también'; break;
+               case 'ne': msg2 = 'यो पनि हेर्नुहोस'; break;
                case 'ro': msg2 = 'Vedeți și'; break;
                case 'se': msg2 = 'Se även'; break;
                case 'uk': msg2 = 'Див. також'; break;
@@ -136,6 +166,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'compteur de contributions sur les projets Wikimédia'; break;
                case 'es': msg2 = 'Contador de ediciones de todos los proyectos Wikimedia'; break;
+               case 'ne': msg2 = 'विकिमीडिया परियोजना काउन्टर सम्पादनहरू'; break;
                case 'ro': msg2 = 'contor pentru contributiile la Wikimédia'; break;
                case 'se': msg2 = 'Redigeringräknare för Wikimediaprojekten'; break;
                case 'uk': msg2 = 'лічильник редагувань у проектах Вікімедіа'; break;
@@ -149,6 +180,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'une image par km<sup>2</sup>, c\'est possible !'; break;
                case 'es': msg2 = '1 imagen/km<sup>2</sup>, ¡podemos hacerlo!'; break;
+               case 'ne': msg2 = '१ तस्विर किमी<sup>२</sup>, हामीहरू गर्न सक्छौ!'; break;
                case 'ro': msg2 = '1 imagine/km<sup>2</sup>, putem reuși!'; break;
                case 'se': msg2 = '1 bild/km<sup>2</sup>, det klarar vi!'; break;
                case 'uk': msg2 = '1 зображення на км<sup>2</sup>, ми це зможемо!'; break;
@@ -162,6 +194,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'un essai sur l\'importance de la préservation de la connaissance'; break;
                case 'es': msg2 = 'un ensayo sobre la importancia de preservar el conocimiento'; break;
+               case 'ne': msg2 = 'संरक्षण ज्ञानको महत्त्व माथि एउटा निबन्ध'; break;
                case 'ro': msg2 = 'un eseu despre importanța păstrării cunoștințelor'; break;
                case 'se': msg2 = 'en essä om vikten av att bevara kunskap'; break;
                case 'uk': msg2 = 'допис про важливість зберігати знання'; break;
@@ -175,6 +208,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'estimation du nombre d\'articles nécessaires pour couvrir l\'intégralité des connaissances'; break;
                case 'es': msg2 = 'estimación del número de artículos necesarios para abarcar todo el conocimiento'; break;
+               case 'ne': msg2 = 'लेखहरूको संख्याको आकलनमा सबै ज्ञानलाई समेट्नु जरूरी छ'; break;
                case 'ro': msg2 = 'estimare a numărului de articole necesare pentru acoperirea tuturor cunoștințelor'; break;
                case 'se': msg2 = 'uppskattning av antal artiklar som krävs för att täcka all kunskap'; break;
                case 'uk': msg2 = 'скільки треба статей, щоб охопити всю сукупність знань'; break;
@@ -188,6 +222,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Pays'; break;
                case 'es': msg2 = 'País'; break;
+               case 'ne': msg2 = 'राष्ट्र'; break;
                case 'ro': msg2 = 'Țară'; break;
                case 'se': msg2 = 'Land'; break;
                case 'uk': msg2 = 'Країна'; break;
@@ -197,10 +232,20 @@ function translatemsg (msg) {
            break;
        
        
+       case 'lat/lon':
+           switch (browserlang) {
+               case 'es': msg2 = 'Lat/Lon'; break;
+               
+               default: msg2 = 'Lat/Lon';
+           }
+           break;
+       
+       
        case 'show-menu':
            switch (browserlang) {
                case 'fr': msg2 = 'Montrer le menu'; break;
                case 'es': msg2 = 'Mostrar menú'; break;
+               case 'ne': msg2 = 'मेनु देखाउने'; break;
                case 'ro': msg2 = 'Arată meniul'; break;
                case 'se': msg2 = 'Visa meny'; break;
                case 'uk': msg2 = 'Показати меню'; break;
@@ -214,6 +259,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Importer votre photo !'; break;
                case 'es': msg2 = '¡Sube tu foto!'; break;
+               case 'ne': msg2 = 'आफ्नो तस्विर अपलोड गर्नुहोस!'; break;
                case 'ro': msg2 = 'Încarcă fotografia!'; break;
                case 'se': msg2 = 'Ladda upp ditt foto!'; break;
                case 'uk': msg2 = 'Завантажити власні фото!'; break;
@@ -227,6 +273,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Chargement en cours... merci de patienter'; break;
                case 'es': msg2 = 'Cargando... espere por favor'; break;
+               case 'ne': msg2 = 'लोड हुँदैछ... कृपया पर्खिनुहोस'; break;
                case 'ro': msg2 = 'Se încarcă... mulțumim pentru răbdare'; break;
                case 'se': msg2 = 'Laddar--- vänligen vänta'; break;
                case 'uk': msg2 = 'Завантажується... будь ласка, зачекайте'; break;
@@ -421,6 +468,15 @@ function translatemsg (msg) {
                case 'es': msg2 = 'Noruega'; break;
                
                default: msg2 = 'Norway';
+           }
+           break;
+        
+        
+       case 'country-np':
+           switch (browserlang) {
+               case 'es': msg2 = 'Nepal'; break;
+               
+               default: msg2 = 'Nepal';
            }
            break;
         
@@ -647,9 +703,9 @@ function setMarker(feature,latlng) {
     popuptext = '<table border=0 width=300px>';
     if (feature.properties.monument_article)
     {
-        popuptext = popuptext + '<tr><td colspan=2><strong><a href="//'+feature.properties.lang+'.wikipedia.org/wiki/'+feature.properties.monument_article+'" target="_blank">'+feature.properties.name+'</a></strong></td></tr>';
+        popuptext = popuptext + '<tr><td colspan=3><strong><a href="//'+feature.properties.lang+'.wikipedia.org/wiki/'+feature.properties.monument_article+'" target="_blank">'+feature.properties.name+'</a></strong></td></tr>';
     }else{
-        popuptext = popuptext + '<tr><td colspan=2><strong>'+feature.properties.name+'</strong></td></tr>';
+        popuptext = popuptext + '<tr><td colspan=3><strong>'+feature.properties.name+'</strong></td></tr>';
     }
     fileext = feature.properties.image.split('.');
     fileext = fileext[fileext.length-1];
@@ -672,8 +728,11 @@ function setMarker(feature,latlng) {
         case 'de': anchorid = '#objektid-'+feature.properties.id; break;
     }
     
-    popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b> <a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a><br/><b>'+translatemsg('country')+':</b> '+translatemsg('country-'+feature.properties.country)+'</td><td rowspan=3><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></td></tr>';
-    popuptext = popuptext + '<tr><td style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b><br/><img src="icons/upload.png" width="40px" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td valign=top width=150px><b>ID:</b></td><td><a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a></td>';
+    popuptext = popuptext + '<td rowspan=4><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td>'+translatemsg('country-'+feature.properties.country)+'</td></tr>';
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('lat/lon')+':</b></td><td><a href="//tools.wmflabs.org/geohack/geohack.php?params=' + geohack(latlng[0],latlong[1]) + '" target="_blank">'+latlng[0]+', '+latlong[1]+'</a></td></tr>';
+    popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b><br/><img src="icons/upload.png" width="40px" /></a></td></tr>';
     if (feature.properties.commonscat)
     {
         popuptext = popuptext + '<tr><td style="text-align: center;">(<a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">Wikimedia Commons</a>)</td></tr>';
