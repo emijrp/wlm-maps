@@ -6,6 +6,7 @@ body{
     font-size: 82%;
     margin: 2px;
     height:100%;
+    overflow: hidden;
 }
 #mapdiv {
     width:100%;
@@ -65,7 +66,7 @@ body{
     padding: 6px 8px;
 }
 .title {
-    top:10px;
+    top:15px;
     left:50px;
     font: 20px Arial, Helvetica, sans-serif;
     font-weight: bold;
