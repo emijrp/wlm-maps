@@ -64,7 +64,7 @@ try {
     if ($mobile == '1'){
         $limit = 25;
     }
-    $sql="SELECT country, lang, id, name, lat, lon, image, commonscat, monument_article, monument_random, source FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT ".$limit;
+    $sql="SELECT country, lang, id, name, lat, lon, municipality, address, image, commonscat, monument_article, monument_random, source FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT ".$limit;
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':left', $left, PDO::PARAM_STR);
     $stmt->bindParam(':right', $right, PDO::PARAM_STR);
@@ -91,6 +91,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     
     $prop=array();
     $prop['country']=$row['country'];
+    $prop['municipality']=$row['municipality'];
+    $prop['address']=$row['address'];
     $prop['lang']=$row['lang'];
     $prop['id']=$row['id'];
     $prop['name']=explode('|', $row['name']);

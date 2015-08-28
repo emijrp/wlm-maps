@@ -257,11 +257,38 @@ function translatemsg (msg) {
            break;
        
        
+       case 'municipality':
+           switch (browserlang) {
+               case 'es': msg2 = 'Municipio'; break;
+               
+               default: msg2 = 'Municipality';
+           }
+           break;
+       
+       
+       case 'address':
+           switch (browserlang) {
+               case 'es': msg2 = 'Dirección'; break;
+               
+               default: msg2 = 'Address';
+           }
+           break;
+       
+       
        case 'lat/lon':
            switch (browserlang) {
                case 'es': msg2 = 'Lat/Lon'; break;
                
                default: msg2 = 'Lat/Lon';
+           }
+           break;
+       
+       
+       case 'n/a':
+           switch (browserlang) {
+               case 'es': msg2 = 'n/d'; break;
+               
+               default: msg2 = 'n/a';
            }
            break;
        
@@ -716,7 +743,7 @@ function init() {
         '<li><a href="//tools.wmflabs.org/wmcounter/" target="_blank">wmcounter</a>: ' + translatemsg('wmcounter') + '</li>' + 
         //'<li><a href="//tools.wmflabs.org/commons-coverage/" target="_blank">Commons Coverage</a>: ' + translatemsg('commons-coverage') + '</li>' + 
         '<li><a href="//en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline" target="_blank">There is a deadline</a>: ' + translatemsg('deadline') + '</li>' + 
-        '<li><a href="//en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge" target="_blank">User:Emijrp/All human knowledge</a> - ' + translatemsg('ahk') + '</li>' + 
+        '<li><a href="//en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge" target="_blank">User:Emijrp/All human knowledge</a>: ' + translatemsg('ahk') + '</li>' + 
         '</ul>' + 
         
         '<p><i><a href="//en.wikipedia.org/wiki/User:Emijrp/Wiki_Loves_Monuments_map" target="_blank"><i>Translate this map into your language!</i></a></p>' + 
@@ -766,8 +793,18 @@ function setMarker(feature,latlng) {
     }
     
     popuptext = popuptext + '<tr><td><b>ID:</b></td><td><a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a></td>';
-    popuptext = popuptext + '<td rowspan=5><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></td></tr>';
+    popuptext = popuptext + '<td rowspan=7><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></td></tr>';
     popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td>'+translatemsg('country-'+feature.properties.country)+'</td></tr>';
+    municipality = feature.properties.municipality;
+    municipality = municipality ? municipality : translatemsg('n/a');
+    municipality = municipality.replace(/\[\[(.*)\|(.*)\]\]/, '$2');
+    municipality = municipality.replace(/\[\[(.*)\]\]/, '$1');
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('municipality')+':</b></td><td>'+municipality+'</td></tr>';
+    address = feature.properties.address;
+    address = address ? address : translatemsg('n/a');
+    address = address.replace(/\[\[(.*)\|(.*)\]\]/, '$2');
+    address = address.replace(/\[\[(.*)\]\]/, '$1');
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('address')+':</b></td><td>'+address+'</td></tr>';
     popuptext = popuptext + '<tr><td><b>'+translatemsg('lat/lon')+':</b></td><td><a href="//tools.wmflabs.org/geohack/geohack.php?params=' + geohack(latlng.lat,latlng.lng) + '" target="_blank">'+latlng.lat+', '+latlng.lng+'</a></td></tr>';
     popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b><br/><img src="icons/upload.png" width="40px" /></a></td></tr>';
     if (feature.properties.commonscat)
@@ -838,11 +875,13 @@ function showMonuments(ajaxresponse) {
         feature = ajaxresponse.features[i];
         id = feature.properties.id;
         country = feature.properties.country;
-        name = feature.properties.name;
+        municipality = feature.properties.municipality.replace(/"/, '');
+        address = feature.properties.address.replace(/"/, '');
+        name = feature.properties.name.replace(/"/, '');
         name = name.replace(/#.*/, '');
         lat = feature.geometry.coordinates[1];
         lon = feature.geometry.coordinates[0];
-        dataString = '"'+id+'","'+country+'","'+name+'","'+lat+','+lon+'"';
+        dataString = '"'+id+'","'+country+'","'+municipality+'","'+address+'","'+name+'","'+lat+','+lon+'"';
         csvContent += i < ajaxresponse.features.length ? dataString + "\n" : dataString;
     }
     encodedCSVUri = encodeURI(csvContent);
