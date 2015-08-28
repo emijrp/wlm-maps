@@ -53,6 +53,17 @@ body{
 #gallery-table {
     background-color: green;
 }
+#notice {
+    position: absolute;
+    bottom: 200px;
+    right: 40px;
+    display: block;
+    background-color: lightgreen;
+    width: 150px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 6px 8px;
+}
 .title {
     top:10px;
     left:50px;
@@ -60,6 +71,7 @@ body{
     font-weight: bold;
     color: white;
     background-color:#A50308;
+    text-align: center;
 }
 a {
     text-decoration: none;
