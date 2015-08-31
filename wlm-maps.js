@@ -69,11 +69,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Cherchez monuments proche de vous, prenez des photos et importez-les !'; break;
                case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
+               case 'nb': msg2 = 'Velkommen! Dette er et kart for <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a>-fotokonkurransen (<a href="http://www.wikilovesmonuments.org" target="_blank">blogg</a>). Søk i monumenter nær deg, ta bilder og last dem opp!'; break;
                case 'ne': msg2 = 'तपाईंलाई स्वागत छ! यो <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">विकी लभ्स मोन्युमेन्ट्स २०१५</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>) तस्विर प्रतियोगिताको नक्सा हो । तपाईं नजिकै रहेको धरोहरहरूको तस्विर खिच्नुहोस् र त्यसलाई अपलोड गर्नुहोस!'; break;
                case 'nl': msg2 = 'Welkom! Dit is de kaart voor de <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>) fotowedstrijd. Zoek naar monumenten in jouw buurt, maak foto\'s en upload ze!'; break;
                case 'ro': msg2 = 'Bun venit! Aceasta este o hartă pentru concursul de fotografie <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Căutați monumente din preajmă, fotografiați-le și încărcați imaginile!'; break;
                case 'ru': msg2 = 'Добро пожаловать! Это карта памятников, участвующих в международном фотоконкурсе «<a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Вики любит памятники</a>» (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Найдите объекты, находящиеся неподалёку, сфотографируйте их и примите участие в конкурсе!'; break;
-               case 'se': msg2 = 'Välkommen! Detta är en karta för fototävlngen <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Hitta monument nära dig, ta bilder och ladda upp dem!'; break;
+               case 'sv': msg2 = 'Välkommen! Detta är en karta för fototävlngen <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Hitta monument nära dig, ta bilder och ladda upp dem!'; break;
                case 'uk': msg2 = 'Привіт! Це карта для фотоконкурсу <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>). Шукайте пам\'ятки біля Вас, робіть фотографії та вантажте їх!'; break;
 
                default: msg2 = '<b>Welcome!</b> This is a map for the <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!';
@@ -85,11 +86,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Légende'; break;
                case 'es': msg2 = 'Leyenda'; break;
+               case 'nb': msg2 = 'Kartbeskrivelse'; break;
                case 'ne': msg2 = 'लिजेन्ड'; break;
                case 'nl': msg2 = 'Legenda'; break;
                case 'ro': msg2 = 'Legendă'; break;
                case 'ru': msg2 = 'Легенда'; break;
-               case 'se': msg2 = 'Legend'; break;
+               case 'sv': msg2 = 'Legend'; break;
                case 'uk': msg2 = 'Легенда'; break;
                
                default: msg2 = 'Legend';
@@ -101,11 +103,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Monument avec image'; break;
                case 'es': msg2 = 'Monumento con foto'; break;
+               case 'nb': msg2 = 'Monument med bilde'; break;
                case 'ne': msg2 = 'तस्विर सहितको धरोहर'; break;
                case 'nl': msg2 = 'Monument met afbeelding'; break;
                case 'ro': msg2 = 'Monument cu imagine'; break;
                case 'ru': msg2 = 'Сфотографированный памятник'; break;
-               case 'se': msg2 = 'Monument med bild'; break;
+               case 'sv': msg2 = 'Monument med bild'; break;
                case 'uk': msg2 = 'Пам\'ятка із фото'; break;
                
                default: msg2 = 'Monument with image';
@@ -117,11 +120,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Monument sans image'; break;
                case 'es': msg2 = 'Monumento sin foto'; break;
+               case 'nb': msg2 = 'Monument uten bilde'; break;
                case 'ne': msg2 = 'तस्विर विनाको धरोहर'; break;
                case 'nl': msg2 = 'Monument zonder afbeelding'; break;
                case 'ro': msg2 = 'Monument fără imagine'; break;
                case 'ru': msg2 = 'Несфотографированный памятник'; break;
-               case 'se': msg2 = 'Monument utan bild'; break;
+               case 'sv': msg2 = 'Monument utan bild'; break;
                case 'uk': msg2 = 'Пам\'ятка без фото'; break;
                
                default: msg2 = 'Monument without image';
@@ -133,11 +137,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Statistiques'; break;
                case 'es': msg2 = 'Estadísticas'; break;
+               case 'nb': msg2 = 'Statistikk'; break;
                case 'ne': msg2 = 'तथ्याङ्कहरू'; break;
                case 'nl': msg2 = 'Statistieken'; break;
                case 'ro': msg2 = 'Statistici'; break;
                case 'ru': msg2 = 'Статистика'; break;
-               case 'se': msg2 = 'Statistik'; break;
+               case 'sv': msg2 = 'Statistik'; break;
                case 'uk': msg2 = 'Статистика'; break;
                
                default: msg2 = 'Statistics';
@@ -149,11 +154,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Il y a des <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistiques</a> pour comparer avec les éditions précédentes.'; break;
                case 'es': msg2 = 'Consulta las <a href="//tools.wmflabs.org/wlm-stats" target="_blank">estadísticas</a> de ediciones anteriores.'; break;
+               case 'nb': msg2 = 'Det fins <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistikk</a> for å sammenligne med tidligere konkurranser.'; break;
                case 'ne': msg2 = 'पछिल्लो संस्करणहरूसँग तुलना गर्नका लागी <a href="//tools.wmflabs.org/wlm-stats" target="_blank">तथ्याङ्कहरू</a> रहेका छन् ।'; break;
                case 'nl': msg2 = 'Er zijn geen <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistieken</a> bekend van eerdere edities.'; break;
                case 'ro': msg2 = 'Aici sunt <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistici</a> pentru a compara cu edițiile precedente.'; break;
                case 'ru': msg2 = '<a href="//tools.wmflabs.org/wlm-stats" target="_blank">Стастистика</a>, которую можно сравнить с прежней.'; break;
-               case 'se': msg2 = 'Det finns <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistik</a> att jämföra med tidigare år.'; break;
+               case 'sv': msg2 = 'Det finns <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistik</a> att jämföra med tidigare år.'; break;
                case 'uk': msg2 = '<a href="//tools.wmflabs.org/wlm-stats" target="_blank">Статистика</a> для порівняння з попередніми конкурсами.'; break;
                
                default: msg2 = 'There are <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistics</a> to compare with previous editions.';
@@ -165,11 +171,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Voir aussi'; break;
                case 'es': msg2 = 'Véase también'; break;
+               case 'nb': msg2 = 'Se også'; break;
                case 'ne': msg2 = 'यो पनि हेर्नुहोस'; break;
                case 'nl': msg2 = 'Zie ook'; break;
                case 'ro': msg2 = 'Vedeți și'; break;
                case 'ru': msg2 = 'См. также'; break;
-               case 'se': msg2 = 'Se även'; break;
+               case 'sv': msg2 = 'Se även'; break;
                case 'uk': msg2 = 'Див. також'; break;
                
                default: msg2 = 'See also';
@@ -181,11 +188,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'compteur de contributions sur les projets Wikimédia'; break;
                case 'es': msg2 = 'Contador de ediciones de todos los proyectos Wikimedia'; break;
+               case 'nb': msg2 = 'Redigeringsteller for Wikimedia-prosjekter'; break;
                case 'ne': msg2 = 'विकिमीडिया परियोजना काउन्टर सम्पादनहरू'; break;
                case 'nl': msg2 = 'Wikimedia projecten bijdragenteller'; break;
                case 'ro': msg2 = 'contor pentru contributiile la Wikimédia'; break;
                case 'ru': msg2 = 'Счётчик правок в проектах Викимедиа'; break;
-               case 'se': msg2 = 'Redigeringräknare för Wikimediaprojekten'; break;
+               case 'sv': msg2 = 'Redigeringräknare för Wikimediaprojekten'; break;
                case 'uk': msg2 = 'лічильник редагувань у проектах Вікімедіа'; break;
                
                default: msg2 = 'Wikimedia projects edits counter';
@@ -197,11 +205,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'une image par km<sup>2</sup>, c\'est possible !'; break;
                case 'es': msg2 = '1 imagen/km<sup>2</sup>, ¡podemos hacerlo!'; break;
+               case 'nb': msg2 = 'Ett bilde per km<sup>2</sup>, det får vi til!'; break;
                case 'ne': msg2 = '१ तस्विर किमी<sup>२</sup>, हामीहरू गर्न सक्छौ!'; break;
                case 'nl': msg2 = '1 afbeelding/km<sup>2</sup>, we kunnen het!'; break;
                case 'ro': msg2 = '1 imagine/km<sup>2</sup>, putem reuși!'; break;
                case 'ru': msg2 = '1 фотография на км<sup>2</sup>, это нетрудно!'; break;
-               case 'se': msg2 = '1 bild/km<sup>2</sup>, det klarar vi!'; break;
+               case 'sv': msg2 = '1 bild/km<sup>2</sup>, det klarar vi!'; break;
                case 'uk': msg2 = '1 зображення на км<sup>2</sup>, ми це зможемо!'; break;
                
                default: msg2 = '1 image/km<sup>2</sup>, we can do it!';
@@ -213,11 +222,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'un essai sur l\'importance de la préservation de la connaissance'; break;
                case 'es': msg2 = 'un ensayo sobre la importancia de preservar el conocimiento'; break;
+               case 'nb': msg2 = 'et essay om viktigheten av å bevare kunnskap'; break;
                case 'ne': msg2 = 'संरक्षण ज्ञानको महत्त्व माथि एउटा निबन्ध'; break;
                case 'nl': msg2 = 'een opstel over de waarde van het conserveren van kennis'; break;
                case 'ro': msg2 = 'un eseu despre importanța păstrării cunoștințelor'; break;
                case 'ru': msg2 = 'эссе о важности сохранения знаний'; break;
-               case 'se': msg2 = 'en essä om vikten av att bevara kunskap'; break;
+               case 'sv': msg2 = 'en essä om vikten av att bevara kunskap'; break;
                case 'uk': msg2 = 'допис про важливість зберігати знання'; break;
                
                default: msg2 = 'an essay on the importance of preserving knowledge';
@@ -229,11 +239,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'estimation du nombre d\'articles nécessaires pour couvrir l\'intégralité des connaissances'; break;
                case 'es': msg2 = 'estimación del número de artículos necesarios para abarcar todo el conocimiento'; break;
+               case 'nb': msg2 = 'estimat av antall artikler som trengs for å dekke all kunnskap'; break;
                case 'ne': msg2 = 'लेखहरूको संख्याको आकलनमा सबै ज्ञानलाई समेट्नु जरूरी छ'; break;
                case 'nl': msg2 = 'schatting van het aantal artikelen benodigd om alle kennis te dekken'; break;
                case 'ro': msg2 = 'estimare a numărului de articole necesare pentru acoperirea tuturor cunoștințelor'; break;
                case 'ru': msg2 = 'оценка числа статей, необходимых для того, чтобы собрать все нужные знания'; break;
-               case 'se': msg2 = 'uppskattning av antal artiklar som krävs för att täcka all kunskap'; break;
+               case 'sv': msg2 = 'uppskattning av antal artiklar som krävs för att täcka all kunskap'; break;
                case 'uk': msg2 = 'скільки треба статей, щоб охопити всю сукупність знань'; break;
                
                default: msg2 = 'estimating the number of articles needed to cover all knowledge';
@@ -245,11 +256,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Pays'; break;
                case 'es': msg2 = 'País'; break;
+               case 'nb': msg2 = 'Land'; break;
                case 'ne': msg2 = 'राष्ट्र'; break;
                case 'nl': msg2 = 'Land'; break;
                case 'ro': msg2 = 'Țară'; break;
                case 'ru': msg2 = 'Страна'; break;
-               case 'se': msg2 = 'Land'; break;
+               case 'sv': msg2 = 'Land'; break;
                case 'uk': msg2 = 'Країна'; break;
                
                default: msg2 = 'Country';
@@ -297,11 +309,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Montrer le menu'; break;
                case 'es': msg2 = 'Mostrar menú'; break;
+               case 'nb': msg2 = 'Vis meny'; break;
                case 'ne': msg2 = 'मेनु देखाउने'; break;
                case 'nl': msg2 = 'Laad menu'; break;
                case 'ro': msg2 = 'Arată meniul'; break;
                case 'ru': msg2 = 'Показать меню'; break;
-               case 'se': msg2 = 'Visa meny'; break;
+               case 'sv': msg2 = 'Visa meny'; break;
                case 'uk': msg2 = 'Показати меню'; break;
                
                default: msg2 = 'Show menu';
@@ -313,11 +326,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Importer votre photo !'; break;
                case 'es': msg2 = '¡Sube tu foto!'; break;
+               case 'nb': msg2 = 'Last opp bildet ditt!'; break;
                case 'ne': msg2 = 'आफ्नो तस्विर अपलोड गर्नुहोस!'; break;
                case 'nl': msg2 = 'Upload jouw foto!'; break;
                case 'ro': msg2 = 'Încarcă fotografia!'; break;
                case 'ru': msg2 = 'Загрузите свои фотографии!'; break;
-               case 'se': msg2 = 'Ladda upp ditt foto!'; break;
+               case 'sv': msg2 = 'Ladda upp ditt foto!'; break;
                case 'uk': msg2 = 'Завантажити власні фото!'; break;
                
                default: msg2 = 'Upload your photo!';
@@ -329,11 +343,12 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'fr': msg2 = 'Chargement en cours... merci de patienter'; break;
                case 'es': msg2 = 'Cargando... espere por favor'; break;
+               case 'nb': msg2 = 'Laster... vennligst vent'; break;
                case 'ne': msg2 = 'लोड हुँदैछ... कृपया पर्खिनुहोस'; break;
                case 'nl': msg2 = 'Laden... een moment geduld'; break;
                case 'ro': msg2 = 'Se încarcă... mulțumim pentru răbdare'; break;
                case 'ru': msg2 = 'Загрузка... пожалуйста, подождите'; break;
-               case 'se': msg2 = 'Laddar--- vänligen vänta'; break;
+               case 'sv': msg2 = 'Laddar--- vänligen vänta'; break;
                case 'uk': msg2 = 'Завантажується... будь ласка, зачекайте'; break;
                
                default: msg2 = 'Loading... please wait';
