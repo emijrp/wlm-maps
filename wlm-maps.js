@@ -584,6 +584,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-pk':
+           switch (browserlang) {
+               case 'es': msg2 = 'Pakistán'; break;
+               
+               default: msg2 = 'Pakistan';
+           }
+           break;
+        
+        
        case 'country-pl':
            switch (browserlang) {
                case 'es': msg2 = 'Polonia'; break;
