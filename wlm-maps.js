@@ -69,6 +69,7 @@ function getfacebook (country) {
         case 'ch': facebook = 'https://www.facebook.com/WikilovesmonumentsCH'; break;
         case 'cl': facebook = 'https://www.facebook.com/wlmcl'; break;
         case 'dz': facebook = 'https://www.facebook.com/WikiDezed'; break;
+        case 'en': facebook = 'https://www.facebook.com/WikiLovesMonuments'; break;
         case 'fr': facebook = 'https://www.facebook.com/WikiLovesMonumentsFrance'; break;
         case 'in': facebook = 'https://www.facebook.com/WikiLovesMonumentsIndia'; break;
         case 'it': facebook = 'https://www.facebook.com/WikiLovesMonumentsItalia'; break;
@@ -92,6 +93,7 @@ function gettwitter (country) {
         case 'cm': twitter = 'WLM_CM'; break;
         case 'co': twitter = 'wlmco'; break;
         case 'dz': twitter = 'WikimediaDZ'; break;
+        case 'en': twitter = 'wikimonuments'; break;
         case 'es': twitter = 'wikimedia_es'; break;
         case 'fr': twitter = 'WLM_Fr'; break;
         case 'hu': twitter = 'WikimediaHU'; break;
@@ -129,6 +131,7 @@ function getwebsite (country) {
         case 'dz': website = 'http://wlm.wikimedia-dz.org/index.php/fr/'; break;
         case 'eg': website = 'https://ar.wikipedia.org/wiki/%D9%88%D9%8A%D9%83%D9%8A%D8%A8%D9%8A%D8%AF%D9%8A%D8%A7:%D8%A7%D9%84%D9%88%D9%8A%D9%83%D9%8A_%D8%AA%D9%87%D9%88%D9%89_%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D9%85_2015/%D9%85%D8%B5%D8%B1#.D8.B4.D8.B1.D9.88.D8.B7_.D8.A7.D9.84.D9.85.D8.B3.D8.A7.D8.A8.D9.82.D8.A9'; break;
         case 'ee': website = 'http://wikilovesmonuments.ee'; break;
+        case 'en': website = 'http://www.wikilovesmonuments.org'; break;
         case 'es': website = 'http://www.wikilm.es'; break;
         case 'fr': website = 'http://wikilovesmonuments.fr'; break;
         case 'ie': website = 'http://www.wikilovesmonuments.ie'; break;
@@ -165,17 +168,17 @@ function translatemsg (msg) {
     switch (msg) {
        case 'welcome':
            switch (browserlang) {
-               case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="' + getwebsite ('fr') + '" target="_blank">Wiki Loves Monuments 2015</a>. Cherchez monuments proche de vous, prenez des photos et importez-les !'; break;
-               case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="' + getwebsite ('es') + '" target="_blank">Wiki Loves Monuments 2015</a>. ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
-               case 'nb': msg2 = 'Velkommen! Dette er et kart for <a href="' + getwebsite ('no') + '" target="_blank">Wiki Loves Monuments 2015</a>-fotokonkurransen. Søk i monumenter nær deg, ta bilder og last dem opp!'; break;
-               case 'ne': msg2 = 'तपाईंलाई स्वागत छ! यो <a href="' + getwebsite ('np') + '" target="_blank">विकी लभ्स मोन्युमेन्ट्स २०१५</a>  तस्विर प्रतियोगिताको नक्सा हो । तपाईं नजिकै रहेको धरोहरहरूको तस्विर खिच्नुहोस् र त्यसलाई अपलोड गर्नुहोस!'; break;
-               case 'nl': msg2 = 'Welkom! Dit is de kaart voor de <a href="' + getwebsite ('nl') + '" target="_blank">Wiki Loves Monuments 2015</a> fotowedstrijd. Zoek naar monumenten in jouw buurt, maak foto\'s en upload ze!'; break;
-               case 'ro': msg2 = 'Bun venit! Aceasta este o hartă pentru concursul de fotografie <a href="' + getwebsite ('ro') + '" target="_blank">Wiki Loves Monuments 2015</a>. Căutați monumente din preajmă, fotografiați-le și încărcați imaginile!'; break;
-               case 'ru': msg2 = 'Добро пожаловать! Это карта памятников, участвующих в международном фотоконкурсе «<a href="' + getwebsite ('ru') + '" target="_blank">Вики любит памятники</a>». Найдите объекты, находящиеся неподалёку, сфотографируйте их и примите участие в конкурсе!'; break;
-               case 'sv': msg2 = 'Välkommen! Detta är en karta för fototävlngen <a href="' + getwebsite ('se') + '" target="_blank">Wiki Loves Monuments 2015</a>. Hitta monument nära dig, ta bilder och ladda upp dem!'; break;
-               case 'uk': msg2 = 'Привіт! Це карта для фотоконкурсу <a href="' + getwebsite ('ua') + '" target="_blank">Wiki Loves Monuments 2015</a>. Шукайте пам\'ятки біля Вас, робіть фотографії та вантажте їх!'; break;
+               case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="' + getwebsite ('fr') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('fr')+'" target="_blank" title="@'+gettwitter('fr')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('fr')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Cherchez monuments proche de vous, prenez des photos et importez-les !'; break;
+               case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="' + getwebsite ('es') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('es')+'" target="_blank" title="@'+gettwitter('es')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('es')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
+               case 'nb': msg2 = 'Velkommen! Dette er et kart for <a href="' + getwebsite ('no') + '" target="_blank">Wiki Loves Monuments 2015</a>-fotokonkurransen&nbsp;<a href="https://twitter.com/'+gettwitter('no')+'" target="_blank" title="@'+gettwitter('no')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('no')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Søk i monumenter nær deg, ta bilder og last dem opp!'; break;
+               case 'ne': msg2 = 'तपाईंलाई स्वागत छ! यो <a href="' + getwebsite ('np') + '" target="_blank">विकी लभ्स मोन्युमेन्ट्स २०१५</a>&nbsp;<a href="https://twitter.com/'+gettwitter('np')+'" target="_blank" title="@'+gettwitter('np')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('np')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a> तस्विर प्रतियोगिताको नक्सा हो । तपाईं नजिकै रहेको धरोहरहरूको तस्विर खिच्नुहोस् र त्यसलाई अपलोड गर्नुहोस!'; break;
+               case 'nl': msg2 = 'Welkom! Dit is de kaart voor de <a href="' + getwebsite ('nl') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('nl')+'" target="_blank" title="@'+gettwitter('nl')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('nl')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a> fotowedstrijd. Zoek naar monumenten in jouw buurt, maak foto\'s en upload ze!'; break;
+               case 'ro': msg2 = 'Bun venit! Aceasta este o hartă pentru concursul de fotografie <a href="' + getwebsite ('ro') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('ro')+'" target="_blank" title="@'+gettwitter('ro')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('ro')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Căutați monumente din preajmă, fotografiați-le și încărcați imaginile!'; break;
+               case 'ru': msg2 = 'Добро пожаловать! Это карта памятников, участвующих в международном фотоконкурсе <a href="' + getwebsite ('ru') + '" target="_blank">Вики любит памятники</a>&nbsp;<a href="https://twitter.com/'+gettwitter('ru')+'" target="_blank" title="@'+gettwitter('ru')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('ru')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Найдите объекты, находящиеся неподалёку, сфотографируйте их и примите участие в конкурсе!'; break;
+               case 'sv': msg2 = 'Välkommen! Detta är en karta för fototävlngen <a href="' + getwebsite ('se') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('se')+'" target="_blank" title="@'+gettwitter('se')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('se')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Hitta monument nära dig, ta bilder och ladda upp dem!'; break;
+               case 'uk': msg2 = 'Привіт! Це карта для фотоконкурсу <a href="' + getwebsite ('ua') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('ua')+'" target="_blank" title="@'+gettwitter('ua')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('ua')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Шукайте пам\'ятки біля Вас, робіть фотографії та вантажте їх!'; break;
 
-               default: msg2 = '<b>Welcome!</b> This is a map for the <a href="//commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015" target="_blank">Wiki Loves Monuments 2015</a> (<a href="http://www.wikilovesmonuments.org" target="_blank">blog</a>) photographic contest. Search monuments near to you, take photos and upload them!';
+               default: msg2 = '<b>Welcome!</b> This is a map for the <a href="' + getwebsite ('en') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('en')+'" target="_blank" title="@'+gettwitter('en')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('en')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a> photographic contest. Search monuments near to you, take photos and upload them!';
            }
            break;
        
@@ -1046,7 +1049,7 @@ function setMarker(feature,latlng) {
     
     popuptext = popuptext + '<tr><td><b>ID:</b></td><td><a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a></td>';
     popuptext = popuptext + '<td rowspan=6 valign=top><div style="overflow: hidden;height: 100px; width: 150px;"><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></div></td></tr>';
-    popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td><a href="' + getwebsite(feature.properties.country) + '" target="_blank" title="' + getwebsite(feature.properties.country) + '">'+ translatemsg('country-'+feature.properties.country)+'</a>&nbsp;<a href="https://twitter.com/'+gettwitter(feature.properties.country)+'" target="_blank" title="@'+gettwitter(feature.properties.country)+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook(feature.properties.country)+'" target="_blank" title="WLM on Facebook!"><img src="icons/facebook.png" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td><a href="' + getwebsite(feature.properties.country) + '" target="_blank" title="' + getwebsite(feature.properties.country) + '">'+ translatemsg('country-'+feature.properties.country)+'</a></td></tr>';
     municipality = feature.properties.municipality;
     municipality = municipality ? municipality : translatemsg('n/a');
     municipality = municipality.replace(/\[\[[^\|\]]*?\|([^\|\]]*?)\]\]/g, '$1');
