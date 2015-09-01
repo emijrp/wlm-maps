@@ -384,6 +384,15 @@ function translatemsg (msg) {
            break;
        
        
+       case 'gallery':
+           switch (browserlang) {
+               case 'es': msg2 = 'Galería'; break;
+               
+               default: msg2 = 'Gallery';
+           }
+           break;
+       
+       
        case 'n/a':
            switch (browserlang) {
                case 'es': msg2 = 'n/d'; break;
@@ -909,7 +918,6 @@ function whenMapMoves(e) {
 
 function setMarker(feature,latlng) {
     var popuptext = '';
-    //popuptext = '<div id="table-marker" style="overflow: auto; max-height: 280px;">';
     popuptext = popuptext + '<table border=0 width=300px>';
     if (feature.properties.monument_article)
     {
@@ -939,8 +947,8 @@ function setMarker(feature,latlng) {
     }
     
     popuptext = popuptext + '<tr><td><b>ID:</b></td><td><a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a></td>';
-    popuptext = popuptext + '<td rowspan=7><div style="overflow: hidden;height: 200px;"><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></div></td></tr>';
-    popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td><a href="' + getwebsite(feature.properties.country) + '" target="_blank">'+ translatemsg('country-'+feature.properties.country)+'</a>&nbsp;<a href="https://twitter.com/'+gettwitter(feature.properties.country)+'" target="_blank" title="@'+gettwitter(feature.properties.country)+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook(feature.properties.country)+'" target="_blank" title="WLM on Facebook!"><img src="icons/facebook.png" /></a></td></tr>';
+    popuptext = popuptext + '<td rowspan=6 valign=top><div style="overflow: hidden;height: 100px;"><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></div></td></tr>';
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td><a href="' + getwebsite(feature.properties.country) + '" target="_blank" title="' + getwebsite(feature.properties.country) + '">'+ translatemsg('country-'+feature.properties.country)+'</a>&nbsp;<a href="https://twitter.com/'+gettwitter(feature.properties.country)+'" target="_blank" title="@'+gettwitter(feature.properties.country)+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook(feature.properties.country)+'" target="_blank" title="WLM on Facebook!"><img src="icons/facebook.png" /></a></td></tr>';
     municipality = feature.properties.municipality;
     municipality = municipality ? municipality : translatemsg('n/a');
     municipality = municipality.replace(/\[\[[^\|\]]*?\|([^\|\]]*?)\]\]/g, '$1');
@@ -951,14 +959,16 @@ function setMarker(feature,latlng) {
     address = address.replace(/\[\[[^\|\]]*?\|([^\|\]]*?)\]\]/g, '$1');
     address = address.replace(/\[\[([^\|\]]*?)\]\]/g, '$1');
     popuptext = popuptext + '<tr><td><b>'+translatemsg('address')+':</b></td><td>'+address+'</td></tr>';
-    popuptext = popuptext + '<tr><td><b>'+translatemsg('lat/lon')+':</b></td><td><a href="//tools.wmflabs.org/geohack/geohack.php?params=' + geohack(latlng.lat,latlng.lng) + '" target="_blank">'+latlng.lat+', '+latlng.lng+'</a></td></tr>';
-    popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;font-size: 120%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank"><b>'+translatemsg('upload-your-photo')+'</b><br/><img src="icons/upload.png" width="40px" /></a></td></tr>';
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('lat/lon')+':</b></td><td colspan=2><a href="//tools.wmflabs.org/geohack/geohack.php?params=' + geohack(latlng.lat,latlng.lng) + '" target="_blank">'+latlng.lat+', '+latlng.lng+'</a></td></tr>';
     if (feature.properties.commonscat)
     {
-        popuptext = popuptext + '<tr><td colspan=2 style="text-align: center;">(<a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">Wikimedia Commons</a>)</td></tr>';
+        popuptext = popuptext + '<tr><td><b>'+translatemsg('gallery')+':</b></td><td colspan=2><a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">See</a></td></tr>';
+    }else{
+        popuptext = popuptext + '<tr><td><b>'+translatemsg('gallery')+':</b></td><td colspan=2>'+translatemsg('n/a')+'</td></tr>';
     }
+    popuptext = popuptext + '<tr><td colspan=3 style="text-align: center;font-size: 150%;"><a href="//commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wlm-'+feature.properties.country+'&id='+feature.properties.id+'" target="_blank" title="'+translatemsg('upload-your-photo')+'"><b>'+translatemsg('upload-your-photo')+'</b> <img src="icons/upload.png" width="30px" /></a></td></tr>';
     popuptext = popuptext + '</table>';
-    //popuptext = popuptext + '</div>';
+
     var icon;
     if (feature.properties.image != 'Monument_unknown.png')
     {
@@ -968,9 +978,11 @@ function setMarker(feature,latlng) {
         icon = withoutimageicon;
         withoutimage = withoutimage + 1;
     }
+    
     var monument; 
     monument=L.marker(latlng, {icon: icon});
     monument.bindPopup(popuptext, {minWidth: 300});
+    
     return monument;
 }
 
