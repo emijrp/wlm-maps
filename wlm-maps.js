@@ -76,16 +76,28 @@ function getfacebook (country) {
 function gettwitter (country) {
     var twitter = 'wikimonuments';
     switch (country) {
+        case 'at': twitter = 'WikimediaAT'; break;
         case 'br': twitter = 'WLM_BRASIL'; break;
+        case 'cl': twitter = 'wikimedia_cl'; break;
         case 'cm': twitter = 'WLM_CM'; break;
         case 'co': twitter = 'wlmco'; break;
+        case 'dz': twitter = 'WikimediaDZ'; break;
+        case 'es': twitter = 'wikimedia_es'; break;
         case 'fr': twitter = 'WLM_Fr'; break;
+        case 'hu': twitter = 'WikimediaHU'; break;
+        case 'il': twitter = 'WikimediaIL'; break;
         case 'in': twitter = 'wlmindia'; break;
+        case 'mx': twitter = 'Wikimedia_mx'; break;
         case 'my': twitter = 'WLMMalaysia'; break;
         case 'nl': twitter = 'WLM_Nederland'; break;
         case 'pa': twitter = 'WLMPanama'; break;
+        case 'pk': twitter = 'Wikimedia_PK'; break;
+        case 'ru': twitter = 'Wikimedia_RU'; break;
+        case 'se': twitter = 'WikimediaSE'; break;
         case 'sv': twitter = 'wlmElSalvador'; break;
+        case 'tn': twitter = 'WikimediaTN'; break;
         case 'uk': twitter = 'WikiLovesUK'; break;
+        case 'uy': twitter = 'wikimedia_uy'; break;
         case 'za': twitter = 'WLM_ZA'; break;
         
         default: twitter = 'wikimonuments';
@@ -928,7 +940,7 @@ function setMarker(feature,latlng) {
     
     popuptext = popuptext + '<tr><td><b>ID:</b></td><td><a href="' + feature.properties.source + anchorid + '" target="_blank">'+feature.properties.id+'</a></td>';
     popuptext = popuptext + '<td rowspan=7><div style="overflow: hidden;height: 200px;"><a href="//commons.wikimedia.org/wiki/File:'+feature.properties.image.replace(/"/g, '%22')+'" target="_blank"><img src="'+thumb_url.replace(/"/g, '%22')+'" onerror="this.src=this.src.replace(/\\/commons\\//,\'/' + feature.properties.lang + '/\');this.parentElement.href=this.parentElement.href.replace(/commons\.wikimedia\.org/,\'' + feature.properties.lang + '.wikipedia.org\');" /></a></div></td></tr>';
-    popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td><a href="' + getwebsite(feature.properties.country) + '" target="_blank">'+ translatemsg('country-'+feature.properties.country)+'</a></td></tr>';
+    popuptext = popuptext + '<tr><td><b>'+translatemsg('country')+':</b></td><td><a href="' + getwebsite(feature.properties.country) + '" target="_blank">'+ translatemsg('country-'+feature.properties.country)+'</a>&nbsp;<a href="https://twitter.com/'+gettwitter(feature.properties.country)+'" target="_blank" title="@'+gettwitter(feature.properties.country)+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook(feature.properties.country)+'" target="_blank" title="WLM on Facebook!"><img src="icons/facebook.png" /></a></td></tr>';
     municipality = feature.properties.municipality;
     municipality = municipality ? municipality : translatemsg('n/a');
     municipality = municipality.replace(/\[\[[^\|\]]*?\|([^\|\]]*?)\]\]/g, '$1');
