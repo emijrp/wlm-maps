@@ -463,6 +463,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-ad':
+           switch (browserlang) {
+               case 'es': msg2 = 'Andorra'; break;
+               
+               default: msg2 = 'Andorra';
+           }
+           break;
+        
+        
        case 'country-aq':
            switch (browserlang) {
                case 'es': msg2 = 'Antártida'; break;
@@ -481,7 +490,17 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-az':
+           switch (browserlang) {
+               case 'es': msg2 = 'Azerbaiyán'; break;
+               
+               default: msg2 = 'Azerbaijan';
+           }
+           break;
+        
+        
        case 'country-be':
+       case 'country-be-bru':
        case 'country-be-vlg':
        case 'country-be-wal':
            switch (browserlang) {
@@ -492,6 +511,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-by':
+           switch (browserlang) {
+               case 'es': msg2 = 'Bielorrusia'; break;
+               
+               default: msg2 = 'Belarus';
+           }
+           break;
+       
+       
        case 'country-ca':
            switch (browserlang) {
                case 'es': msg2 = 'Canadá'; break;
@@ -506,6 +534,15 @@ function translatemsg (msg) {
                case 'es': msg2 = 'Suiza'; break;
                
                default: msg2 = 'Switzerland';
+           }
+           break;
+        
+        
+       case 'country-cm':
+           switch (browserlang) {
+               case 'es': msg2 = 'Camerún'; break;
+               
+               default: msg2 = 'Cameroon';
            }
            break;
         
@@ -530,6 +567,7 @@ function translatemsg (msg) {
         
        case 'country-de':
        case 'country-de-by':
+       case 'country-de-he':
        case 'country-de-nrw-bm':
        case 'country-de-nrw-k':
            switch (browserlang) {
@@ -539,7 +577,18 @@ function translatemsg (msg) {
            }
            break;
         
+       
+       case 'country-dk':
+       case 'country-dk-bygning':
+       case 'country-dk-fortids':
+           switch (browserlang) {
+               case 'es': msg2 = 'Dinamarca'; break;
+               
+               default: msg2 = 'Denmark';
+           }
+           break;
         
+       
        case 'country-dz':
            switch (browserlang) {
                case 'es': msg2 = 'Argelia'; break;
@@ -547,7 +596,6 @@ function translatemsg (msg) {
                default: msg2 = 'Algeria';
            }
            break;
-        
         
        case 'country-ee':
            switch (browserlang) {
@@ -578,10 +626,22 @@ function translatemsg (msg) {
         
        case 'country-gb':
        case 'country-gb-eng':
+       case 'country-gb-nir':
+       case 'country-gb-sct':
+       case 'country-gb-wls':
            switch (browserlang) {
                case 'es': msg2 = 'Reino Unido'; break;
                
                default: msg2 = 'United Kingdom';
+           }
+           break;
+        
+        
+       case 'country-gh':
+           switch (browserlang) {
+               case 'es': msg2 = 'Ghana'; break;
+               
+               default: msg2 = 'Ghana';
            }
            break;
         
@@ -632,6 +692,8 @@ function translatemsg (msg) {
         
         
        case 'country-it':
+       case 'country-it-bz':
+       case 'country-it-88':
            switch (browserlang) {
                case 'es': msg2 = 'Italia'; break;
                
@@ -640,11 +702,11 @@ function translatemsg (msg) {
            break;
         
         
-       case 'country-it-bz':
+       case 'country-jo':
            switch (browserlang) {
-               case 'es': msg2 = 'Italia'; break;
+               case 'es': msg2 = 'Jordán'; break;
                
-               default: msg2 = 'Italy';
+               default: msg2 = 'Jordan';
            }
            break;
         
@@ -687,6 +749,7 @@ function translatemsg (msg) {
         
         
        case 'country-nl':
+       case 'country-nl-aw':
        case 'country-nl-gem':
        case 'country-nl-prov':
            switch (browserlang) {
@@ -778,7 +841,10 @@ function translatemsg (msg) {
         
         
        case 'country-se':
+       case 'country-se-arbetsl':
+       case 'country-se-bbr':
        case 'country-se-fornmin':
+       case 'country-se-ship':
            switch (browserlang) {
                case 'es': msg2 = 'Suecia'; break;
                
