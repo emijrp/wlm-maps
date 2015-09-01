@@ -66,7 +66,17 @@ function getfacebook (country) {
     var facebook = 'https://www.facebook.com/WikiLovesMonuments';
     switch (country) {
         case 'br': facebook = 'https://www.facebook.com/WikiLovesMonumentsBrasil'; break;
+        case 'ch': facebook = 'https://www.facebook.com/WikilovesmonumentsCH'; break;
+        case 'cl': facebook = 'https://www.facebook.com/wlmcl'; break;
+        case 'dz': facebook = 'https://www.facebook.com/WikiDezed'; break;
         case 'fr': facebook = 'https://www.facebook.com/WikiLovesMonumentsFrance'; break;
+        case 'in': facebook = 'https://www.facebook.com/WikiLovesMonumentsIndia'; break;
+        case 'it': facebook = 'https://www.facebook.com/WikiLovesMonumentsItalia'; break;
+        case 'mx': facebook = 'https://www.facebook.com/WikiLovesMonumentsMexico'; break;
+        case 'nl': facebook = 'https://www.facebook.com/WikiLovesMonumentsNL'; break;
+        case 'pa': facebook = 'https://www.facebook.com/pages/Wiki-Loves-Monuments-Panama-2013/319795771436882'; break;
+        case 'rs': facebook = 'https://www.facebook.com/WikiLovesMonumentsSerbia'; break;
+        case 'za': facebook = 'https://www.facebook.com/WLMZA'; break;
         
         default: facebook = 'https://www.facebook.com/WikiLovesMonuments';
     }
