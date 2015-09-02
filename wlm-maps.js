@@ -503,6 +503,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-ar':
+           switch (browserlang) {
+               case 'es': msg2 = 'Argentina'; break;
+               
+               default: msg2 = 'Argentina';
+           }
+           break;
+        
+        
        case 'country-at':
            switch (browserlang) {
                case 'es': msg2 = 'Austria'; break;
@@ -533,6 +542,24 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-bo':
+           switch (browserlang) {
+               case 'es': msg2 = 'Bolivia'; break;
+               
+               default: msg2 = 'Bolivia';
+           }
+           break;
+       
+       
+       case 'country-br':
+           switch (browserlang) {
+               case 'es': msg2 = 'Brazil'; break;
+               
+               default: msg2 = 'Brazil';
+           }
+           break;
+       
+       
        case 'country-by':
            switch (browserlang) {
                case 'es': msg2 = 'Bielorrusia'; break;
@@ -560,6 +587,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-cl':
+           switch (browserlang) {
+               case 'es': msg2 = 'Chile'; break;
+               
+               default: msg2 = 'Chile';
+           }
+           break;
+        
+        
        case 'country-cm':
            switch (browserlang) {
                case 'es': msg2 = 'Camerún'; break;
@@ -574,6 +610,15 @@ function translatemsg (msg) {
                case 'es': msg2 = 'China'; break;
                
                default: msg2 = 'China';
+           }
+           break;
+        
+        
+       case 'country-co':
+           switch (browserlang) {
+               case 'es': msg2 = 'Colombia'; break;
+               
+               default: msg2 = 'Colombia';
            }
            break;
         
@@ -770,6 +815,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-mx':
+           switch (browserlang) {
+               case 'es': msg2 = 'México'; break;
+               
+               default: msg2 = 'Mexico';
+           }
+           break;
+        
+        
        case 'country-nl':
        case 'country-nl-aw':
        case 'country-nl-gem':
@@ -917,6 +971,24 @@ function translatemsg (msg) {
                case 'es': msg2 = 'Estados Unidos'; break;
                
                default: msg2 = 'United States';
+           }
+           break;
+        
+        
+       case 'country-uy':
+           switch (browserlang) {
+               case 'es': msg2 = 'Uruguay'; break;
+               
+               default: msg2 = 'Uruguay';
+           }
+           break;
+        
+        
+       case 'country-ve':
+           switch (browserlang) {
+               case 'es': msg2 = 'Venezuela'; break;
+               
+               default: msg2 = 'Venezuela';
            }
            break;
         
