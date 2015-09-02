@@ -328,6 +328,20 @@ function translatemsg (msg) {
            break;
        
        
+       case 'deadline-link':
+           switch (browserlang) {
+               case 'ca': msg2 = '//ca.wikipedia.org/wiki/Viquipèdia:Hi_ha_una_data_límit'; break;
+               case 'en': msg2 = '//en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline'; break;
+               case 'it': msg2 = '//it.wikipedia.org/wiki/Wikipedia:Lotta_contro_il_tempo'; break;
+               case 'nl': msg2 = '//nl.wikipedia.org/wiki/Wikipedia:Er_is_een_deadline'; break;
+               case 'ro': msg2 = '//ro.wikipedia.org/wiki/Wikipedia:Există_un_termen_limită'; break;
+               case 'sv': msg2 = '//sv.wikipedia.org/wiki/Wikipedia:Det_finns_en_deadline'; break;
+               
+               default: msg2 = '//en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline';
+           }
+           break;
+       
+       
        case 'deadline':
            switch (browserlang) {
                case 'fr': msg2 = 'un essai sur l\'importance de la préservation de la connaissance'; break;
@@ -352,7 +366,7 @@ function translatemsg (msg) {
                case 'es': msg2 = 'estimación del número de artículos necesarios para abarcar todo el conocimiento'; break;
                case 'nb': msg2 = 'estimat av antall artikler som trengs for å dekke all kunnskap'; break;
                case 'ne': msg2 = 'लेखहरूको संख्याको आकलनमा सबै ज्ञानलाई समेट्नु जरूरी छ'; break;
-               case 'nl': msg2 = 'schatting van het aantal artikelen benodigd om alle kennis te dekken'; break;
+               case 'nl': msg2 = 'schatting van het aantal artikelen benodigd om alle kennis af te dekken'; break;
                case 'ro': msg2 = 'estimare a numărului de articole necesare pentru acoperirea tuturor cunoștințelor'; break;
                case 'ru': msg2 = 'оценка числа статей, необходимых для того, чтобы собрать все нужные знания'; break;
                case 'sq': msg2 = 'duke llogaritur numrin e artikujve që nevojiten për të paraqitur të gjithë dijen njerëzore'; break;
@@ -1084,7 +1098,7 @@ function init() {
         '<ul style="margin-left: -20px;">' + 
         '<li><a href="//tools.wmflabs.org/wmcounter/" target="_blank">wmcounter</a>: ' + translatemsg('wmcounter') + '</li>' + 
         //'<li><a href="//tools.wmflabs.org/commons-coverage/" target="_blank">Commons Coverage</a>: ' + translatemsg('commons-coverage') + '</li>' + 
-        '<li><a href="//en.wikipedia.org/wiki/Wikipedia:There_is_a_deadline" target="_blank">There is a deadline</a>: ' + translatemsg('deadline') + '</li>' + 
+        '<li><a href="' + translatemsg('deadline-link') + '" target="_blank">There is a deadline</a>: ' + translatemsg('deadline') + '</li>' + 
         '<li><a href="//en.wikipedia.org/wiki/User:Emijrp/All_human_knowledge" target="_blank">User:Emijrp/All human knowledge</a>: ' + translatemsg('ahk') + '</li>' + 
         '</ul>' + 
         
@@ -1259,7 +1273,7 @@ function showRecentlyUploaded(ajaxresponse) {
         if (datediff >= 3600) { datediff2 = Math.round(datediff / 3600); timeunit = datediff2 == 1 ? 'hour' : 'hours'; }
         if (datediff >= 86400) { datediff2 = Math.round(datediff / 86400); timeunit = datediff2 == 1 ? 'day' : 'days'; }
         
-        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img.replace(/"/g, '%22') + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img.replace(/"/g, '%22') + '/150px-' + img.replace(/"/g, '%22') + '" title="Uploaded by ' + uploader +', ' + datediff2 + ' ' + timeunit + ' ago"/></a></td>';
+        gallery = gallery + '<td valign=top><a href="https://commons.wikimedia.org/wiki/File:' + img.replace(/"/g, '%22') + '" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/' + md5[0] + '/' + md5 + '/' + img.replace(/"/g, '%22') + '/150px-' + img.replace(/"/g, '%22') + '" title="Uploaded by ' + uploader +', ' + datediff2 + ' ' + timeunit + ' ago" onerror="this.src=\'//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/LUSITANA_WLM_2011_d.svg/80-LUSITANA_WLM_2011_d.svg.png\';" /></a></td>';
     }
     gallery = gallery + "</table>";
     document.getElementById('gallery-div').innerHTML = gallery;
