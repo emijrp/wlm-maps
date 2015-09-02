@@ -508,6 +508,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'country-am':
+           switch (browserlang) {
+               case 'es': msg2 = 'Armenia'; break;
+               
+               default: msg2 = 'Armenia';
+           }
+           break;
+        
+        
        case 'country-aq':
            switch (browserlang) {
                case 'es': msg2 = 'Antártida'; break;
@@ -1263,20 +1272,20 @@ function showRecentlyUploaded(ajaxresponse) {
         var md5 = images[i].properties.md5;
         
         fileext = img.split('.');
-		fileext = fileext[fileext.length-1];
-		switch (fileext) {
-			case 'svg':
-			var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + md5.substring(0,1) + '/' + md5.substring(0,2) + '/' + img + '/150px-' + img + '.png';
-			break;
-			
-			case 'tif':
-			case 'tiff':
-			var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + md5.substring(0,1) + '/' + md5.substring(0,2) + '/' + img + '/lossless-page1-150px-' + img + '.png';
-			break;
-			
-			default:
-			var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + md5.substring(0,1) + '/' + md5.substring(0,2) + '/' + img + '/150px-' + img;
-		}
+        fileext = fileext[fileext.length-1];
+        switch (fileext) {
+            case 'svg':
+            var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + md5.substring(0,1) + '/' + md5.substring(0,2) + '/' + img + '/150px-' + img + '.png';
+            break;
+            
+            case 'tif':
+            case 'tiff':
+            var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + md5.substring(0,1) + '/' + md5.substring(0,2) + '/' + img + '/lossless-page1-150px-' + img + '.png';
+            break;
+            
+            default:
+            var thumb_url = '//upload.wikimedia.org/wikipedia/commons/thumb/' + md5.substring(0,1) + '/' + md5.substring(0,2) + '/' + img + '/150px-' + img;
+        }
     
         var pattern = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/;
         var dt = new Date(upload_date.replace(pattern,'$1-$2-$3T$4:$5:$6'));
