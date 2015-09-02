@@ -65,6 +65,16 @@ body{
     border-radius: 5px;
     padding: 6px 8px;
 }
+#share {
+    position: absolute;
+    bottom: 185px;
+    right: 12px;
+    display: block;
+    background-color: lightgreen;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 6px 8px;
+}
 .title {
     top:15px;
     left:50px;
