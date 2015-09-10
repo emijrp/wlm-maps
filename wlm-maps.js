@@ -1209,8 +1209,10 @@ function setMarker(feature,latlng) {
 function updateMonuments() {
     featureCollection = [];
     withimage = 0; withoutimage = 0;
+    document.getElementById('wait').style.display = 'block';
     askForMonuments('0');  // without images
     askForMonuments('1');  // with images
+    document.getElementById('wait').style.display = 'none';
 
     //counting
     if (withimage + withoutimage == 0) {
@@ -1247,7 +1249,6 @@ function askForMonuments(withImages) {
         mobile = '1';
     }
     var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile + '&withImages=' + withImages;
-    document.getElementById('wait').style.display = 'block';
     $.ajax({
         url: 'ajaxmonuments.php',
         dataType: 'json',
@@ -1278,7 +1279,6 @@ function showMonuments(ajaxresponse) {
         withimage = ajaxresponse.features.length;
     }
     featureCollection.push(ajaxresponse.features);
-    document.getElementById('wait').style.display = 'none';
 }
 
 function showRecentlyUploaded(ajaxresponse) {
