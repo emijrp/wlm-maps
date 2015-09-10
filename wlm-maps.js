@@ -1271,11 +1271,11 @@ function showMonuments(ajaxresponse) {
     if( ajaxresponse.withImages == '0' ) {
         layerNoPicMonuments.clearLayers();
         layerNoPicMonuments.addData(ajaxresponse);
-        withimage = ajaxresponse.features.length;
+        withoutimage = ajaxresponse.features.length;
     }else{
         layerWithPicMonuments.clearLayers();
         layerWithPicMonuments.addData(ajaxresponse);
-        withoutimage = ajaxresponse.features.length;
+        withimage = ajaxresponse.features.length;
     }
     featureCollection.push(ajaxresponse.features);
     document.getElementById('wait').style.display = 'none';
