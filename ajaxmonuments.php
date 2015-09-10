@@ -95,6 +95,7 @@ try {
 $ajaxres=array(); // place to store the geojson result
 $features=array(); // array to build up the feature collection
 $ajaxres['type']='FeatureCollection';
+$ajaxres['withImages']=$withImages;
 
 // go through the list adding each one to the array to be returned    
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
