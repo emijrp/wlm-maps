@@ -23,8 +23,8 @@ var layerWithPicMonuments;
 var withimageicon;
 var withoutimageicon;
 var browserlang;
-var withimage;
-var withoutimage;
+var withimage = 0;
+var withoutimage = 0;
 var encodedCSVUri;
 var featureCollection;
 
@@ -1208,7 +1208,6 @@ function setMarker(feature,latlng) {
 
 function updateMonuments() {
     featureCollection = [];
-    withimage = 0; withoutimage = 0;
     document.getElementById('wait').style.display = 'block';
     askForMonuments('0');  // without images
     askForMonuments('1');  // with images
