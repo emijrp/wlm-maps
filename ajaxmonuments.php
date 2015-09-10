@@ -40,6 +40,10 @@ $mobile='0';
 if (isset($_GET['mobile'])) {
     $mobile = $_GET['mobile'];
 }
+$withImages='0';
+if (isset($_GET['withImages'])) {
+    $withImages = $_GET['withImages'];
+}
 // open the database
 $dbmycnf = parse_ini_file("../replica.my.cnf");
 $dbuser = $dbmycnf['user'];
@@ -60,11 +64,19 @@ try {
 }
 
 try {
-    $limit = 250;
+    $limit = 125;
     if ($mobile == '1'){
-        $limit = 25;
+        $limit = 15;
     }
-    $sql="SELECT country, lang, id, name, lat, lon, municipality, address, image, commonscat, monument_article, monument_random, source FROM monuments_all WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top ORDER BY monument_random LIMIT ".$limit;
+    $imageCondition = "image = ''";
+    if ($withImages == '1'){
+        $imageCondition = "image != ''";
+    }
+    $sql="SELECT country, lang, id, name, lat, lon, municipality, address, image, commonscat, monument_article, monument_random, source " .
+         "FROM monuments_all " .
+         "WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top AND " . $imageCondition . " " .
+         "ORDER BY monument_random " .
+         "LIMIT " . $limit;
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':left', $left, PDO::PARAM_STR);
     $stmt->bindParam(':right', $right, PDO::PARAM_STR);

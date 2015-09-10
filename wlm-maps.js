@@ -18,13 +18,15 @@
  
 var map;
 var layerOSM;
-var layerMonuments;
+var layerNoPicMonuments;
+var layerWithPicMonuments;
 var withimageicon;
 var withoutimageicon;
 var browserlang;
 var withimage;
 var withoutimage;
 var encodedCSVUri;
+var featureCollection;
 
 if (navigator.systemLanguage) {
     browserlang = navigator.systemLanguage;
@@ -1053,7 +1055,11 @@ function init() {
         attribution: osmAttrib
     });
     
-    layerMonuments = L.geoJson(null, {
+    layerNoPicMonuments = L.geoJson(null, {
+        pointToLayer: setMarker,
+        }
+    );
+    layerWithPicMonuments = L.geoJson(null, {
         pointToLayer: setMarker,
         }
     );
@@ -1063,7 +1069,7 @@ function init() {
     map = new L.Map('mapdiv', {
         center: start,
         zoom: 2,
-        layers: [layerOSM,layerMonuments]
+        layers: [layerOSM,layerNoPicMonuments,layerWithPicMonuments]
     });
     L.control.scale().addTo(map);
     
@@ -1072,7 +1078,8 @@ function init() {
     };
 
     var overlays = {
-        "Monuments": layerMonuments
+        "Monuments (without images)": layerNoPicMonuments,
+        "Monuments (with images)": layerWithPicMonuments
     };
 
     L.control.layers(baseLayers, overlays).addTo(map);
@@ -1122,12 +1129,12 @@ function init() {
     map.on('moveend', whenMapMoves);
     //map.on('zoomend', whenMapMoves);
     //map.on('dragend', whenMapMoves);
-    askForMonuments();
+    updateMonuments();
     askForRecentlyUploaded();
 }
 
 function whenMapMoves(e) {
-    askForMonuments();
+    updateMonuments();
     askForRecentlyUploaded();
 }
 
@@ -1188,10 +1195,8 @@ function setMarker(feature,latlng) {
     if (feature.properties.image != 'Monument_unknown.png')
     {
         icon = withimageicon;
-        withimage = withimage + 1;
     }else{
         icon = withoutimageicon;
-        withoutimage = withoutimage + 1;
     }
     
     var monument; 
@@ -1201,13 +1206,47 @@ function setMarker(feature,latlng) {
     return monument;
 }
 
-function askForMonuments() {
+function updateMonuments() {
+    featureCollection = [];
+    withimage = 0; withoutimage = 0;
+    askForMonuments('0');  // without images
+    askForMonuments('1');  // with images
+
+    //counting
+    if (withimage + withoutimage == 0) {
+        document.getElementById('withimage').innerHTML = '0, 0%';
+        document.getElementById('withoutimage').innerHTML = '0, 0%';
+    }else{
+        document.getElementById('withimage').innerHTML = withimage + ', ' + Number((withimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
+        document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + Number((withoutimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
+    }
+
+    //csv
+    var csvContent = "data:text/csv;charset=utf-8,";
+    for (var i=0;i<featureCollection.length;i++) {
+        feature = featureCollection[i];
+        id = feature.properties.id;
+        country = feature.properties.country;
+        municipality = feature.properties.municipality.replace(/"/, '');
+        address = feature.properties.address.replace(/"/, '');
+        name = feature.properties.name.replace(/"/, '');
+        name = name.replace(/#.*/, '');
+        lat = feature.geometry.coordinates[1];
+        lon = feature.geometry.coordinates[0];
+        dataString = '"'+id+'","'+country+'","'+municipality+'","'+address+'","'+name+'","'+lat+','+lon+'"';
+        csvContent += i < featureCollection.length ? dataString + "\n" : dataString;
+    }
+    encodedCSVUri = encodeURI(csvContent);
+    featureCollection = []; // no need to hang on to this in memory
+}
+
+function askForMonuments(withImages) {
     var mobile;
     mobile = '0';
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 800 && window.innerHeight <= 600) ) {
         mobile = '1';
     }
-    var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile;
+    var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile + '&withImages=' + withImages;
     document.getElementById('wait').style.display = 'block';
     $.ajax({
         url: 'ajaxmonuments.php',
@@ -1229,36 +1268,17 @@ function askForRecentlyUploaded() {
 }
 
 function showMonuments(ajaxresponse) {
-    layerMonuments.clearLayers();
-    withimage = 0; withoutimage = 0;
-    layerMonuments.addData(ajaxresponse);
-    document.getElementById('wait').style.display = 'none';
-    
-    //counting
-    if (withimage + withoutimage == 0) {
-        document.getElementById('withimage').innerHTML = '0, 0%';
-        document.getElementById('withoutimage').innerHTML = '0, 0%';
+    if( ajaxresponse.withImages == '0' ) {
+        layerNoPicMonuments.clearLayers();
+        layerNoPicMonuments.addData(ajaxresponse);
+        withimage = ajaxresponse.features.length;
     }else{
-        document.getElementById('withimage').innerHTML = withimage + ', ' + Number((withimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
-        document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + Number((withoutimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
+        layerWithPicMonuments.clearLayers();
+        layerWithPicMonuments.addData(ajaxresponse);
+        withoutimage = ajaxresponse.features.length;
     }
-    
-    //csv
-    var csvContent = "data:text/csv;charset=utf-8,";
-    for (var i=0;i<ajaxresponse.features.length;i++) {
-        feature = ajaxresponse.features[i];
-        id = feature.properties.id;
-        country = feature.properties.country;
-        municipality = feature.properties.municipality.replace(/"/, '');
-        address = feature.properties.address.replace(/"/, '');
-        name = feature.properties.name.replace(/"/, '');
-        name = name.replace(/#.*/, '');
-        lat = feature.geometry.coordinates[1];
-        lon = feature.geometry.coordinates[0];
-        dataString = '"'+id+'","'+country+'","'+municipality+'","'+address+'","'+name+'","'+lat+','+lon+'"';
-        csvContent += i < ajaxresponse.features.length ? dataString + "\n" : dataString;
-    }
-    encodedCSVUri = encodeURI(csvContent);
+    featureCollection.push(ajaxresponse.features);
+    document.getElementById('wait').style.display = 'none';
 }
 
 function showRecentlyUploaded(ajaxresponse) {
