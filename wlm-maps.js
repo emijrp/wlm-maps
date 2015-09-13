@@ -550,6 +550,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'see':
+           switch (browserlang) {
+               case 'es': msg2 = 'Ver'; break;
+               
+               default: msg2 = 'See';
+           }
+           break;
+        
+        
        case 'country-ad':
            switch (browserlang) {
                case 'es': msg2 = 'Andorra'; break;
@@ -1228,7 +1237,7 @@ function setMarker(feature,latlng) {
     popuptext = popuptext + '<tr><td><b>'+translatemsg('lat/lon')+':</b></td><td colspan=2><a href="//tools.wmflabs.org/geohack/geohack.php?params=' + geohack(latlng.lat,latlng.lng) + '" target="_blank">'+latlng.lat+', '+latlng.lng+'</a></td></tr>';
     if (feature.properties.commonscat)
     {
-        popuptext = popuptext + '<tr><td><b>'+translatemsg('gallery')+':</b></td><td colspan=2><a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">See</a></td></tr>';
+        popuptext = popuptext + '<tr><td><b>'+translatemsg('gallery')+':</b></td><td colspan=2><a href="//commons.wikimedia.org/wiki/Category:'+feature.properties.commonscat+'" target="_blank">'+translatemsg('see')+'</a></td></tr>';
     }else{
         popuptext = popuptext + '<tr><td><b>'+translatemsg('gallery')+':</b></td><td colspan=2>'+translatemsg('n/a')+'</td></tr>';
     }
