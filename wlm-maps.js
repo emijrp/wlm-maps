@@ -541,6 +541,15 @@ function translatemsg (msg) {
            break;
         
         
+       case 'share-map':
+           switch (browserlang) {
+               case 'es': msg2 = '¡Comparte el mapa!'; break;
+               
+               default: msg2 = 'Share this map!';
+           }
+           break;
+        
+        
        case 'country-ad':
            switch (browserlang) {
                case 'es': msg2 = 'Andorra'; break;
