@@ -168,8 +168,9 @@ function translatemsg (msg) {
     switch (msg) {
        case 'welcome':
            switch (browserlang) {
-               case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="' + getwebsite ('fr') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('fr')+'" target="_blank" title="@'+gettwitter('fr')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('fr')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Cherchez monuments proche de vous, prenez des photos et importez-les !'; break;
                case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="' + getwebsite ('es') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('es')+'" target="_blank" title="@'+gettwitter('es')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('es')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
+               case 'fr': msg2 = '<b>Bienvenue !</b> Ceci est une carte pour le concours photographique <a href="' + getwebsite ('fr') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('fr')+'" target="_blank" title="@'+gettwitter('fr')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('fr')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Cherchez monuments proche de vous, prenez des photos et importez-les !'; break;
+               case 'he': msg2 = 'ברוכים הבאים! זוהי מפה עבור תחרות הצילום ויקיפדיה אוהבת אתרי מורשת 2015. חפשו אתרי מורשת ועתיקות לידכם, צלמו והעלו את התמונות!'; break;
                case 'nb': msg2 = 'Velkommen! Dette er et kart for <a href="' + getwebsite ('no') + '" target="_blank">Wiki Loves Monuments 2015</a>-fotokonkurransen&nbsp;<a href="https://twitter.com/'+gettwitter('no')+'" target="_blank" title="@'+gettwitter('no')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('no')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Søk i monumenter nær deg, ta bilder og last dem opp!'; break;
                case 'ne': msg2 = 'तपाईंलाई स्वागत छ! यो <a href="' + getwebsite ('np') + '" target="_blank">विकी लभ्स मोन्युमेन्ट्स २०१५</a>&nbsp;<a href="https://twitter.com/'+gettwitter('np')+'" target="_blank" title="@'+gettwitter('np')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('np')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a> तस्विर प्रतियोगिताको नक्सा हो । तपाईं नजिकै रहेको धरोहरहरूको तस्विर खिच्नुहोस् र त्यसलाई अपलोड गर्नुहोस!'; break;
                case 'nl': msg2 = 'Welkom! Dit is de kaart voor de fotowedstrijd <a href="' + getwebsite ('nl') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('nl')+'" target="_blank" title="@'+gettwitter('nl')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('nl')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. Zoek naar monumenten in jouw buurt, maak foto\'s en upload ze!'; break;
@@ -186,8 +187,9 @@ function translatemsg (msg) {
        
        case 'legend':
            switch (browserlang) {
-               case 'fr': msg2 = 'Légende'; break;
                case 'es': msg2 = 'Leyenda'; break;
+               case 'fr': msg2 = 'Légende'; break;
+               case 'he': msg2 = 'מקרא'; break;
                case 'nb': msg2 = 'Kartbeskrivelse'; break;
                case 'ne': msg2 = 'लिजेन्ड'; break;
                case 'nl': msg2 = 'Legenda'; break;
@@ -204,8 +206,9 @@ function translatemsg (msg) {
        
        case 'monument-with-image':
            switch (browserlang) {
-               case 'fr': msg2 = 'Monument avec image'; break;
                case 'es': msg2 = 'Monumento con foto'; break;
+               case 'fr': msg2 = 'Monument avec image'; break;
+               case 'he': msg2 = 'אתרי מורשת או עתיקות עם תמונה'; break;
                case 'nb': msg2 = 'Monument med bilde'; break;
                case 'ne': msg2 = 'तस्विर सहितको धरोहर'; break;
                case 'nl': msg2 = 'Monument met afbeelding'; break;
@@ -222,8 +225,9 @@ function translatemsg (msg) {
        
        case 'monument-without-image':
            switch (browserlang) {
-               case 'fr': msg2 = 'Monument sans image'; break;
                case 'es': msg2 = 'Monumento sin foto'; break;
+               case 'fr': msg2 = 'Monument sans image'; break;
+               case 'he': msg2 = 'אתרי מורשת או עתיקות ללא תמונה'; break;
                case 'nb': msg2 = 'Monument uten bilde'; break;
                case 'ne': msg2 = 'तस्विर विनाको धरोहर'; break;
                case 'nl': msg2 = 'Monument zonder afbeelding'; break;
@@ -240,8 +244,9 @@ function translatemsg (msg) {
        
        case 'statistics':
            switch (browserlang) {
-               case 'fr': msg2 = 'Statistiques'; break;
                case 'es': msg2 = 'Estadísticas'; break;
+               case 'fr': msg2 = 'Statistiques'; break;
+               case 'he': msg2 = 'נתונים סטטיסטיים'; break;
                case 'nb': msg2 = 'Statistikk'; break;
                case 'ne': msg2 = 'तथ्याङ्कहरू'; break;
                case 'nl': msg2 = 'Statistieken'; break;
@@ -258,8 +263,9 @@ function translatemsg (msg) {
        
        case 'statistics-description':
            switch (browserlang) {
-               case 'fr': msg2 = 'Il y a des <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistiques</a> pour comparer avec les éditions précédentes.'; break;
                case 'es': msg2 = 'Consulta las <a href="//tools.wmflabs.org/wlm-stats" target="_blank">estadísticas</a> de ediciones anteriores.'; break;
+               case 'fr': msg2 = 'Il y a des <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistiques</a> pour comparer avec les éditions précédentes.'; break;
+               case 'he': msg2 = 'קיימים נתונים סטטיסטיים להשוואה לגרסאות קודמות.'; break;
                case 'nb': msg2 = 'Det fins <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistikk</a> for å sammenligne med tidligere konkurranser.'; break;
                case 'ne': msg2 = 'पछिल्लो संस्करणहरूसँग तुलना गर्नका लागी <a href="//tools.wmflabs.org/wlm-stats" target="_blank">तथ्याङ्कहरू</a> रहेका छन् ।'; break;
                case 'nl': msg2 = 'Er zijn geen <a href="//tools.wmflabs.org/wlm-stats" target="_blank">statistieken</a> bekend van eerdere edities.'; break;
@@ -276,8 +282,9 @@ function translatemsg (msg) {
        
        case 'see-also':
            switch (browserlang) {
-               case 'fr': msg2 = 'Voir aussi'; break;
                case 'es': msg2 = 'Véase también'; break;
+               case 'fr': msg2 = 'Voir aussi'; break;
+               case 'he': msg2 = 'ראה גם'; break;
                case 'nb': msg2 = 'Se også'; break;
                case 'ne': msg2 = 'यो पनि हेर्नुहोस'; break;
                case 'nl': msg2 = 'Zie ook'; break;
@@ -294,8 +301,9 @@ function translatemsg (msg) {
        
        case 'wmcounter':
            switch (browserlang) {
-               case 'fr': msg2 = 'compteur de contributions sur les projets Wikimédia'; break;
                case 'es': msg2 = 'Contador de ediciones de todos los proyectos Wikimedia'; break;
+               case 'fr': msg2 = 'compteur de contributions sur les projets Wikimédia'; break;
+               case 'he': msg2 = 'מונה עריכות למיזמי ויקימדיה'; break;
                case 'nb': msg2 = 'Redigeringsteller for Wikimedia-prosjekter'; break;
                case 'ne': msg2 = 'विकिमीडिया परियोजना काउन्टर सम्पादनहरू'; break;
                case 'nl': msg2 = 'Wikimedia-projecten bijdragenteller'; break;
@@ -312,8 +320,9 @@ function translatemsg (msg) {
        
        case 'commons-coverage':
            switch (browserlang) {
-               case 'fr': msg2 = 'une image par km<sup>2</sup>, c\'est possible !'; break;
                case 'es': msg2 = '1 imagen/km<sup>2</sup>, ¡podemos hacerlo!'; break;
+               case 'fr': msg2 = 'une image par km<sup>2</sup>, c\'est possible !'; break;
+               case 'he': msg2 = 'תמונה אחת לקמ"ר, אנחנו מסוגלים לעשות את זה!'; break;
                case 'nb': msg2 = 'Ett bilde per km<sup>2</sup>, det får vi til!'; break;
                case 'ne': msg2 = '१ तस्विर किमी<sup>२</sup>, हामीहरू गर्न सक्छौ!'; break;
                case 'nl': msg2 = '1 afbeelding/km<sup>2</sup>, we kunnen het!'; break;
@@ -344,8 +353,9 @@ function translatemsg (msg) {
        
        case 'deadline':
            switch (browserlang) {
-               case 'fr': msg2 = 'un essai sur l\'importance de la préservation de la connaissance'; break;
                case 'es': msg2 = 'un ensayo sobre la importancia de preservar el conocimiento'; break;
+               case 'fr': msg2 = 'un essai sur l\'importance de la préservation de la connaissance'; break;
+               case 'he': msg2 = 'מאמר על חשיבות שימור הידע'; break;
                case 'nb': msg2 = 'et essay om viktigheten av å bevare kunnskap'; break;
                case 'ne': msg2 = 'संरक्षण ज्ञानको महत्त्व माथि एउटा निबन्ध'; break;
                case 'nl': msg2 = 'een opstel over de waarde van het conserveren van kennis'; break;
@@ -362,8 +372,9 @@ function translatemsg (msg) {
        
        case 'ahk':
            switch (browserlang) {
-               case 'fr': msg2 = 'estimation du nombre d\'articles nécessaires pour couvrir l\'intégralité des connaissances'; break;
                case 'es': msg2 = 'estimación del número de artículos necesarios para abarcar todo el conocimiento'; break;
+               case 'fr': msg2 = 'estimation du nombre d\'articles nécessaires pour couvrir l\'intégralité des connaissances'; break;
+               case 'he': msg2 = 'הערכה של כמות הערכים הדרושים כדי לכסות את כל הידע האנושי'; break;
                case 'nb': msg2 = 'estimat av antall artikler som trengs for å dekke all kunnskap'; break;
                case 'ne': msg2 = 'लेखहरूको संख्याको आकलनमा सबै ज्ञानलाई समेट्नु जरूरी छ'; break;
                case 'nl': msg2 = 'schatting van het aantal artikelen benodigd om alle kennis af te dekken'; break;
@@ -380,8 +391,9 @@ function translatemsg (msg) {
        
        case 'country':
            switch (browserlang) {
-               case 'fr': msg2 = 'Pays'; break;
                case 'es': msg2 = 'País'; break;
+               case 'fr': msg2 = 'Pays'; break;
+               case 'he': msg2 = 'מדינה'; break;
                case 'nb': msg2 = 'Land'; break;
                case 'ne': msg2 = 'राष्ट्र'; break;
                case 'nl': msg2 = 'Land'; break;
@@ -447,8 +459,9 @@ function translatemsg (msg) {
        
        case 'show-menu':
            switch (browserlang) {
-               case 'fr': msg2 = 'Montrer le menu'; break;
                case 'es': msg2 = 'Mostrar menú'; break;
+               case 'fr': msg2 = 'Montrer le menu'; break;
+               case 'he': msg2 = 'הצג תפריט'; break;
                case 'nb': msg2 = 'Vis meny'; break;
                case 'ne': msg2 = 'मेनु देखाउने'; break;
                case 'nl': msg2 = 'Laad menu'; break;
@@ -465,8 +478,9 @@ function translatemsg (msg) {
        
        case 'upload-your-photo':
            switch (browserlang) {
-               case 'fr': msg2 = 'Importer votre photo !'; break;
                case 'es': msg2 = '¡Sube tu foto!'; break;
+               case 'fr': msg2 = 'Importer votre photo !'; break;
+               case 'he': msg2 = 'העלה תמונה!'; break;
                case 'nb': msg2 = 'Last opp bildet ditt!'; break;
                case 'ne': msg2 = 'आफ्नो तस्विर अपलोड गर्नुहोस!'; break;
                case 'nl': msg2 = 'Upload jouw foto!'; break;
@@ -483,8 +497,9 @@ function translatemsg (msg) {
        
        case 'loading':
            switch (browserlang) {
-               case 'fr': msg2 = 'Chargement en cours... merci de patienter'; break;
                case 'es': msg2 = 'Cargando... espere por favor'; break;
+               case 'fr': msg2 = 'Chargement en cours... merci de patienter'; break;
+               case 'he': msg2 = 'טוען... נא המתן'; break;
                case 'nb': msg2 = 'Laster... vennligst vent'; break;
                case 'ne': msg2 = 'लोड हुँदैछ... कृपया पर्खिनुहोस'; break;
                case 'nl': msg2 = 'Laden... een moment geduld'; break;
