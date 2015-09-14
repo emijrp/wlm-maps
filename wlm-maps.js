@@ -218,10 +218,9 @@ function init() {
         "OpenStreetMap": layerOSM
     };
 
-    var overlays = {
-        translatemsg('monument-without-image'): layerNoPicMonuments,
-        translatemsg('monument-with-image'): layerWithPicMonuments
-    };
+    var overlays = {}
+    overlays[translatemsg('monument-without-image')] = layerNoPicMonuments;
+    overlays[translatemsg('monument-with-image')] = layerWithPicMonuments;
 
     L.control.layers(baseLayers, overlays).addTo(map);
     
