@@ -12,13 +12,6 @@ Features
 
 It shows the location of monuments from the [Wiki Loves Monuments database](https://commons.wikimedia.org/wiki/Commons:Monuments_database).
 
-TODO
-----
-
-  * i18n
-  * Filter by country using parameter
-  * Two layers (with/out image?)
-
 See also
 ----
   * [wlm-stats](https://github.com/emijrp/wlm-stats)
