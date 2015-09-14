@@ -23,8 +23,8 @@ var layerWithPicMonuments;
 var withimageicon;
 var withoutimageicon;
 var browserlang;
-var withimage = 0;
-var withoutimage = 0;
+var withimage;
+var withoutimage;
 var encodedCSVUri;
 var featureCollection;
 
@@ -1208,37 +1208,43 @@ function setMarker(feature,latlng) {
 
 function updateMonuments() {
     featureCollection = [];
+    withimage = 0;
+    withoutimage = 0;
     document.getElementById('wait').style.display = 'block';
-    askForMonuments('0');  // without images
-    askForMonuments('1');  // with images
-    document.getElementById('wait').style.display = 'none';
+    var withoutCall = askForMonuments('0');  // without images
+    var withCall = askForMonuments('1');  // with images
 
-    //counting
-    if (withimage + withoutimage == 0) {
-        document.getElementById('withimage').innerHTML = '0, 0%';
-        document.getElementById('withoutimage').innerHTML = '0, 0%';
-    }else{
-        document.getElementById('withimage').innerHTML = withimage + ', ' + Number((withimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
-        document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + Number((withoutimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
-    }
+    // wait for ajax calls to complete
+    $.when(withoutCall, withCall).done(function() {
+        document.getElementById('wait').style.display = 'none';
 
-    //csv
-    var csvContent = "data:text/csv;charset=utf-8,";
-    for (var i=0;i<featureCollection.length;i++) {
-        feature = featureCollection[i];
-        id = feature.properties.id;
-        country = feature.properties.country;
-        municipality = feature.properties.municipality.replace(/"/, '');
-        address = feature.properties.address.replace(/"/, '');
-        name = feature.properties.name.replace(/"/, '');
-        name = name.replace(/#.*/, '');
-        lat = feature.geometry.coordinates[1];
-        lon = feature.geometry.coordinates[0];
-        dataString = '"'+id+'","'+country+'","'+municipality+'","'+address+'","'+name+'","'+lat+','+lon+'"';
-        csvContent += i < featureCollection.length ? dataString + "\n" : dataString;
-    }
-    encodedCSVUri = encodeURI(csvContent);
-    featureCollection = []; // no need to hang on to this in memory
+        //counting
+        if (withimage + withoutimage == 0) {
+            document.getElementById('withimage').innerHTML = '0, 0%';
+            document.getElementById('withoutimage').innerHTML = '0, 0%';
+        }else{
+            document.getElementById('withimage').innerHTML = withimage + ', ' + Number((withimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
+            document.getElementById('withoutimage').innerHTML = withoutimage + ', ' + Number((withoutimage / ((withimage + withoutimage)/100.0)).toFixed(1)) + '%';
+        }
+
+        //csv
+        var csvContent = "data:text/csv;charset=utf-8,";
+        for (var i=0;i<featureCollection.length;i++) {
+            feature = featureCollection[i];
+            id = feature.properties.id;
+            country = feature.properties.country;
+            municipality = feature.properties.municipality.replace(/"/, '');
+            address = feature.properties.address.replace(/"/, '');
+            name = feature.properties.name.replace(/"/, '');
+            name = name.replace(/#.*/, '');
+            lat = feature.geometry.coordinates[1];
+            lon = feature.geometry.coordinates[0];
+            dataString = '"'+id+'","'+country+'","'+municipality+'","'+address+'","'+name+'","'+lat+','+lon+'"';
+            csvContent += i < featureCollection.length ? dataString + "\n" : dataString;
+        }
+        encodedCSVUri = encodeURI(csvContent);
+        featureCollection = []; // no need to hang on to this in memory
+    });
 }
 
 function askForMonuments(withImages) {
@@ -1248,7 +1254,7 @@ function askForMonuments(withImages) {
         mobile = '1';
     }
     var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile + '&withImages=' + withImages;
-    $.ajax({
+    return = $.ajax({
         url: 'ajaxmonuments.php',
         dataType: 'json',
         data: data,
