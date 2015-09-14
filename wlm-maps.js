@@ -1254,7 +1254,7 @@ function askForMonuments(withImages) {
         mobile = '1';
     }
     var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile + '&withImages=' + withImages;
-    return = $.ajax({
+    return $.ajax({
         url: 'ajaxmonuments.php',
         dataType: 'json',
         data: data,
@@ -1283,7 +1283,7 @@ function showMonuments(ajaxresponse) {
         layerWithPicMonuments.addData(ajaxresponse);
         withimage = ajaxresponse.features.length;
     }
-    featureCollection.push(ajaxresponse.features);
+    featureCollection = featureCollection.concat(ajaxresponse.features);
 }
 
 function showRecentlyUploaded(ajaxresponse) {
