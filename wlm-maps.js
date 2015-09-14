@@ -219,8 +219,8 @@ function init() {
     };
 
     var overlays = {
-        "Monuments (without images)": layerNoPicMonuments,
-        "Monuments (with images)": layerWithPicMonuments
+        translatemsg('monument-without-image'): layerNoPicMonuments,
+        translatemsg('monument-with-image'): layerWithPicMonuments
     };
 
     L.control.layers(baseLayers, overlays).addTo(map);
