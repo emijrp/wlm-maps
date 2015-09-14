@@ -211,6 +211,7 @@ function init() {
             'zoomInTitle':translatemsg('zoom-in'),
             'zoomOutTitle':translatemsg('zoom-out')
         })
+    );
     L.control.scale().addTo(map);
     
     var baseLayers = {
