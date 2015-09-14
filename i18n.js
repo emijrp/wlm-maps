@@ -1,6 +1,30 @@
 function translatemsg (msg) {
     var msg2 = msg;
     switch (msg) {
+       case 'zoom-in':
+           switch (browserlang) {
+               case 'sv': msg2 = 'Zooma in'; break;
+
+               default: msg2 = 'Zoom in';
+           }
+           break;
+       
+       case 'zoom-out':
+           switch (browserlang) {
+               case 'sv': msg2 = 'Zooma ut'; break;
+
+               default: msg2 = 'Zoom out';
+           }
+           break;
+       
+       case 'locate':
+           switch (browserlang) {
+               case 'sv': msg2 = 'Hitta'; break;
+
+               default: msg2 = 'Locate';
+           }
+           break;
+       
        case 'welcome':
            switch (browserlang) {
                case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="' + getwebsite ('es') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('es')+'" target="_blank" title="@'+gettwitter('es')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('es')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;

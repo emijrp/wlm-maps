@@ -201,10 +201,16 @@ function init() {
     
     // create the map
     map = new L.Map('mapdiv', {
+        zoomControl: false,
         center: start,
         zoom: 2,
         layers: [layerOSM,layerNoPicMonuments,layerWithPicMonuments]
     });
+    map.addControl(
+        L.control.zoom({
+            'zoomInTitle':translatemsg('zoom-in'),
+            'zoomOutTitle':translatemsg('zoom-out')
+        })
     L.control.scale().addTo(map);
     
     var baseLayers = {
@@ -218,7 +224,8 @@ function init() {
 
     L.control.layers(baseLayers, overlays).addTo(map);
     
-    var osmGeocoder = new L.Control.OSMGeocoder();
+    var osmOptions = {text: translatemsg('locate')};
+    var osmGeocoder = new L.Control.OSMGeocoder(osmOptions);
     map.addControl(osmGeocoder);
     var hash = new L.Hash(map);
     
