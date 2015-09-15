@@ -167,7 +167,7 @@ function getwebsite (country) {
 
 function init() {
     var osmUrl='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
-    var osmAttrib='Map data &copy; <a href="//openstreetmap.org" target="_blank">OpenStreetMap</a> contributors | <a href="//commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Monuments database</a> by Wikipedia editors | <a href="//github.com/emijrp/wlm-maps" target="_blank">Source code</a> by <a href="//en.wikipedia.org/wiki/User:Emijrp" target="_blank">emijrp</a> in GitHub';
+    var osmAttrib=translatemsg('osm-attrib');
     
     withimageicon=L.icon({
     iconUrl: 'icons/withimageicon.png',

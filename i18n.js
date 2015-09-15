@@ -25,6 +25,14 @@ function translatemsg (msg) {
            }
            break;
        
+       case 'osm-attrib':
+           switch (browserlang) {
+               case 'sv': msg2 = 'Kartdata &copy; <a href="//openstreetmap.org" target="_blank">OpenStreetMap</a>-bidragsgivare | <a href="//commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Minnesmärkesdatabas</a> av Wikipedia-skribenter | <a href="//github.com/emijrp/wlm-maps" target="_blank">Källkod</a> by <a href="//en.wikipedia.org/wiki/User:Emijrp" target="_blank">emijrp</a> på GitHub'; break;
+
+               default: msg2 = 'Map data &copy; <a href="//openstreetmap.org" target="_blank">OpenStreetMap</a> contributors | <a href="//commons.wikimedia.org/wiki/Commons:Monuments_database" target="_blank">Monuments database</a> by Wikipedia editors | <a href="//github.com/emijrp/wlm-maps" target="_blank">Source code</a> by <a href="//en.wikipedia.org/wiki/User:Emijrp" target="_blank">emijrp</a> in GitHub';
+           }
+           break;
+       
        case 'welcome':
            switch (browserlang) {
                case 'es': msg2 = '<b>¡Bienvenido/a!</b> Este es un mapa para el concurso <a href="' + getwebsite ('es') + '" target="_blank">Wiki Loves Monuments 2015</a>&nbsp;<a href="https://twitter.com/'+gettwitter('es')+'" target="_blank" title="@'+gettwitter('es')+' on Twitter!"><img src="icons/twitter.ico" /></a>&nbsp;<a href="'+getfacebook('es')+'" target="_blank" title="Wiki Loves Monuments on Facebook!"><img src="icons/facebook.png" /></a>. ¡Busca monumentos próximos a ti, hazles fotos y súbelas!'; break;
