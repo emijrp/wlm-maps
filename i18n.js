@@ -17,6 +17,24 @@ function translatemsg (msg) {
            }
            break;
        
+       case 'hide-minimap':
+           switch (browserlang) {
+               case 'de': msg2 = 'Miniaturkarte ausblenden'; break;
+               case 'sv': msg2 = 'Dölj minikarta'; break;
+
+               default: msg2 = 'Hide MiniMap';
+           }
+           break;
+       
+       case 'show-minimap':
+           switch (browserlang) {
+               case 'de': msg2 = 'Miniaturkarte einblenden'; break;
+               case 'sv': msg2 = 'Visa minikarta'; break;
+
+               default: msg2 = 'Show MiniMap';
+           }
+           break;
+       
        case 'locate':
            switch (browserlang) {
                case 'sv': msg2 = 'Hitta'; break;
@@ -85,7 +103,7 @@ function translatemsg (msg) {
                case 'ro': msg2 = 'Monument cu imagine'; break;
                case 'ru': msg2 = 'Сфотографированный памятник'; break;
                case 'sq': msg2 = 'Monument me imazh'; break;
-               case 'sv': msg2 = 'Monument med bild'; break;
+               case 'sv': msg2 = 'Minnesmärke med bild'; break;
                case 'uk': msg2 = 'Пам\'ятка із фото'; break;
                
                default: msg2 = 'Monument with image';
@@ -105,7 +123,7 @@ function translatemsg (msg) {
                case 'ro': msg2 = 'Monument fără imagine'; break;
                case 'ru': msg2 = 'Несфотографированный памятник'; break;
                case 'sq': msg2 = 'Monument pa imazh'; break;
-               case 'sv': msg2 = 'Monument utan bild'; break;
+               case 'sv': msg2 = 'Minnesmärke utan bild'; break;
                case 'uk': msg2 = 'Пам\'ятка без фото'; break;
                
                default: msg2 = 'Monument without image';
@@ -289,6 +307,7 @@ function translatemsg (msg) {
                case 'es': msg2 = 'Municipio'; break;
                case 'it': msg2 = 'Comune'; break;
                case 'sq': msg2 = 'Njësi bashkiake'; break;
+               case 'sv': msg2 = 'Kommun'; break;
                
                default: msg2 = 'Municipality';
            }
@@ -300,6 +319,7 @@ function translatemsg (msg) {
                case 'es': msg2 = 'Dirección'; break;
                case 'it': msg2 = 'Indirizzo'; break;
                case 'sq': msg2 = 'Addresa'; break;
+               case 'sv': msg2 = 'Adress'; break;
                
                default: msg2 = 'Address';
            }
@@ -311,6 +331,7 @@ function translatemsg (msg) {
                case 'es': msg2 = 'Lat/Lon'; break;
                case 'it': msg2 = 'Lat/Lon'; break;
                case 'sq': msg2 = 'Lat/Lon'; break;
+               case 'sv': msg2 = 'Lat/Lon'; break;
                
                default: msg2 = 'Lat/Lon';
            }
@@ -321,6 +342,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'es': msg2 = 'Galería'; break;
                case 'it': msg2 = 'Galleria'; break;
+               case 'sv': msg2 = 'Galleri'; break;
                
                default: msg2 = 'Gallery';
            }
@@ -332,6 +354,7 @@ function translatemsg (msg) {
                case 'es': msg2 = 'n/d'; break;
                case 'it': msg2 = 'n/a'; break;
                case 'sq': msg2 = 'n/a'; break;
+               case 'sv': msg2 = 'n/a'; break;
                
                default: msg2 = 'n/a';
            }
@@ -390,7 +413,7 @@ function translatemsg (msg) {
                case 'ro': msg2 = 'Se încarcă... mulțumim pentru răbdare'; break;
                case 'ru': msg2 = 'Загрузка... пожалуйста, подождите'; break;
                case 'sq': msg2 = 'Duke u ngarkuar... ju jutem prisni'; break;
-               case 'sv': msg2 = 'Laddar--- vänligen vänta'; break;
+               case 'sv': msg2 = 'Laddar... vänligen vänta'; break;
                case 'uk': msg2 = 'Завантажується... будь ласка, зачекайте'; break;
                
                default: msg2 = 'Loading... please wait';
@@ -402,6 +425,7 @@ function translatemsg (msg) {
            switch (browserlang) {
                case 'es': msg2 = 'Septiembre de 2015'; break;
                case 'it': msg2 = 'Settembre 2015'; break;
+               case 'sv': msg2 = 'September 2015'; break;
                
                default: msg2 = 'September 2015';
            }
@@ -411,6 +435,7 @@ function translatemsg (msg) {
        case 'share-map':
            switch (browserlang) {
                case 'es': msg2 = '¡Comparte el mapa!'; break;
+               case 'sv': msg2 = 'Dela denna karta!'; break;
                
                default: msg2 = 'Share this map!';
            }
@@ -420,6 +445,7 @@ function translatemsg (msg) {
        case 'see':
            switch (browserlang) {
                case 'es': msg2 = 'Ver'; break;
+               case 'sv': msg2 = 'Se'; break;
                
                default: msg2 = 'See';
            }

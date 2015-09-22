@@ -265,7 +265,12 @@ function init() {
     
     //Plugin magic goes here! Note that you cannot use the same layer object again, as that will confuse the two map controls
     var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
-    var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true, zoomLevelOffset: -6 }).addTo(map);
+    var miniMapOptions = {
+        toggleDisplay: true,
+        zoomLevelOffset: -6,
+        strings: {hideText: translatemsg('hide-minimap'), showText: translatemsg('show-minimap')}
+    };
+    var miniMap = new L.Control.MiniMap(osm2, miniMapOptions).addTo(map);
 
     map.on('moveend', whenMapMoves);
     //map.on('zoomend', whenMapMoves);
