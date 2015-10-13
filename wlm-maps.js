@@ -23,6 +23,7 @@ var layerWithPicMonuments;
 var withimageicon;
 var withoutimageicon;
 var browserlang;
+var mobile;
 var withimage;
 var withoutimage;
 var encodedCSVUri;
@@ -38,6 +39,11 @@ if (navigator.systemLanguage) {
     browserlang = 'en';
 }
 browserlang = browserlang.split('-')[0];
+
+mobile = '0';
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 800 && window.innerHeight <= 600) ) {
+    mobile = '1';
+}
 
 $(document).ready(init);
 
@@ -166,6 +172,12 @@ function getwebsite (country) {
 }
 
 function init() {
+    if (mobile == 1){
+        $("#csv-button").hide();
+        $("#gallery-div").hide();
+        $("#share").hide();
+    }
+    
     var osmUrl='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
     var osmAttrib=translatemsg('osm-attrib');
     
@@ -276,12 +288,16 @@ function init() {
     //map.on('zoomend', whenMapMoves);
     //map.on('dragend', whenMapMoves);
     updateMonuments();
-    askForRecentlyUploaded();
+    if (mobile == 0){
+        askForRecentlyUploaded();
+    }
 }
 
 function whenMapMoves(e) {
     updateMonuments();
-    askForRecentlyUploaded();
+    if (mobile == 0){
+        askForRecentlyUploaded();
+    }
 }
 
 function setMarker(feature,latlng) {
@@ -374,31 +390,32 @@ function updateMonuments() {
         }
 
         //csv
-        var csvContent = "data:text/csv;charset=utf-8,";
-        for (var i=0;i<featureCollection.length;i++) {
-            feature = featureCollection[i];
-            id = feature.properties.id;
-            country = feature.properties.country;
-            municipality = feature.properties.municipality.replace(/"/, '');
-            address = feature.properties.address.replace(/"/, '');
-            name = feature.properties.name.replace(/"/, '');
-            name = name.replace(/#.*/, '');
-            lat = feature.geometry.coordinates[1];
-            lon = feature.geometry.coordinates[0];
-            dataString = '"'+id+'","'+country+'","'+municipality+'","'+address+'","'+name+'","'+lat+','+lon+'"';
-            csvContent += i < featureCollection.length ? dataString + "\n" : dataString;
+        if (mobile == 0){
+            makeCSV(featureCollection)
         }
-        encodedCSVUri = encodeURI(csvContent);
         featureCollection = []; // no need to hang on to this in memory
     });
 }
 
-function askForMonuments(withImages) {
-    var mobile;
-    mobile = '0';
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 800 && window.innerHeight <= 600) ) {
-        mobile = '1';
+function makeCSV(featureCollection) {
+    var csvContent = "data:text/csv;charset=utf-8,";
+    for (var i=0;i<featureCollection.length;i++) {
+        feature = featureCollection[i];
+        id = feature.properties.id;
+        country = feature.properties.country;
+        municipality = feature.properties.municipality.replace(/"/, '');
+        address = feature.properties.address.replace(/"/, '');
+        name = feature.properties.name.replace(/"/, '');
+        name = name.replace(/#.*/, '');
+        lat = feature.geometry.coordinates[1];
+        lon = feature.geometry.coordinates[0];
+        dataString = '"'+id+'","'+country+'","'+municipality+'","'+address+'","'+name+'","'+lat+','+lon+'"';
+        csvContent += i < featureCollection.length ? dataString + "\n" : dataString;
     }
+    encodedCSVUri = encodeURI(csvContent);
+}
+
+function askForMonuments(withImages) {
     var data='bbox=' + map.getBounds().toBBoxString() + '&mobile=' + mobile + '&withImages=' + withImages;
     return $.ajax({
         url: 'ajaxmonuments.php',
