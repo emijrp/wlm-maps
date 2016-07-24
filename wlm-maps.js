@@ -123,15 +123,15 @@ function getwebsite (country) {
     var website = 'http://www.wikilovesmonuments.org';
     switch (country) {
         case 'al': website = 'http://wikilovesmonuments.al'; break;
-        case 'am': website = 'https://hy.wikipedia.org/wiki/%D5%8E%D5%AB%D6%84%D5%AB%D5%BA%D5%A5%D5%A4%D5%AB%D5%A1:%D5%8E%D5%AB%D6%84%D5%AB%D5%B6_%D5%BD%D5%AB%D6%80%D5%B8%D6%82%D5%B4_%D5%A7_%D5%B0%D5%B8%D6%82%D5%B7%D5%A1%D6%80%D5%B1%D5%A1%D5%B6%D5%B6%D5%A5%D6%80_2015'; break;
+        case 'am': website = 'https://hy.wikipedia.org/wiki/%D5%8E%D5%AB%D6%84%D5%AB%D5%BA%D5%A5%D5%A4%D5%AB%D5%A1:%D5%8E%D5%AB%D6%84%D5%AB%D5%B6_%D5%BD%D5%AB%D6%80%D5%B8%D6%82%D5%B4_%D5%A7_%D5%B0%D5%B8%D6%82%D5%B7%D5%A1%D6%80%D5%B1%D5%A1%D5%B6%D5%B6%D5%A5%D6%80_2016'; break;
         case 'at': website = 'http://wikilovesmonuments.at'; break;
-        case 'az': website = 'https://az.wikipedia.org/wiki/Vikipediya:Viki_Abid%C9%99l%C9%99ri_Sevir_2015'; break;
-        case 'br': website = 'https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Wiki_Loves_Monuments_2015/Brasil'; break;
+        case 'az': website = 'https://az.wikipedia.org/wiki/Vikipediya:Viki_Abid%C9%99l%C9%99ri_Sevir_2016'; break;
+        case 'br': website = 'https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Wiki_Loves_Monuments_2016/Brasil'; break;
         case 'cm': website = 'http://cm.wikilovesmonuments.org'; break;
         case 'co': website = 'http://wikilovesmonuments.co'; break;
         case 'de': website = 'http://wikilovesmonuments.de'; break;
         case 'dz': website = 'http://wlm.wikimedia-dz.org/index.php/fr/'; break;
-        case 'eg': website = 'https://ar.wikipedia.org/wiki/%D9%88%D9%8A%D9%83%D9%8A%D8%A8%D9%8A%D8%AF%D9%8A%D8%A7:%D8%A7%D9%84%D9%88%D9%8A%D9%83%D9%8A_%D8%AA%D9%87%D9%88%D9%89_%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D9%85_2015/%D9%85%D8%B5%D8%B1#.D8.B4.D8.B1.D9.88.D8.B7_.D8.A7.D9.84.D9.85.D8.B3.D8.A7.D8.A8.D9.82.D8.A9'; break;
+        case 'eg': website = 'https://ar.wikipedia.org/wiki/%D9%88%D9%8A%D9%83%D9%8A%D8%A8%D9%8A%D8%AF%D9%8A%D8%A7:%D8%A7%D9%84%D9%88%D9%8A%D9%83%D9%8A_%D8%AA%D9%87%D9%88%D9%89_%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D9%84%D9%85_2016/%D9%85%D8%B5%D8%B1#.D8.B4.D8.B1.D9.88.D8.B7_.D8.A7.D9.84.D9.85.D8.B3.D8.A7.D8.A8.D9.82.D8.A9'; break;
         case 'ee': website = 'http://wikilovesmonuments.ee'; break;
         case 'en': website = 'http://www.wikilovesmonuments.org'; break;
         case 'es': website = 'http://www.wikilm.es'; break;
@@ -141,17 +141,17 @@ function getwebsite (country) {
         case 'in': website = 'https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2013_in_India'; break; //LOST http://wikilovesmonuments.in
         case 'ir': website = 'https://fa.wikipedia.org/wiki/%D9%88%DB%8C%DA%A9%DB%8C%E2%80%8C%D9%BE%D8%AF%DB%8C%D8%A7:%D9%88%DB%8C%DA%A9%DB%8C_%D8%AF%D9%88%D8%B3%D8%AA%D8%AF%D8%A7%D8%B1_%DB%8C%D8%A7%D8%AF%D9%85%D8%A7%D9%86%E2%80%8C%D9%87%D8%A7_%DB%B2%DB%B0%DB%B1%DB%B5_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86'; break;
         case 'it': website = 'http://wikilovesmonuments.wikimedia.it'; break;
-        case 'lv': website = 'https://lv.wikipedia.org/wiki/Vikiprojekts:Kult%C5%ABras_pieminek%C4%BCi_Vikip%C4%93dij%C4%81_2015'; break;
+        case 'lv': website = 'https://lv.wikipedia.org/wiki/Vikiprojekts:Kult%C5%ABras_pieminek%C4%BCi_Vikip%C4%93dij%C4%81_2016'; break;
         case 'mk': website = 'http://wikilovesmonuments.mk'; break;
-        case 'my': website = 'http://2015.wikilovesmonuments.my'; break;
+        case 'my': website = 'http://2016.wikilovesmonuments.my'; break;
         case 'nl': website = 'http://www.wikimedia.nl/project/wiki-loves-monuments'; break;
-        case 'no': website = 'https://no.wikipedia.org/wiki/Wikipedia:Wiki_Loves_Monuments_2015'; break;
-        case 'np': website = 'https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2015_in_Nepal'; break;
+        case 'no': website = 'https://no.wikipedia.org/wiki/Wikipedia:Wiki_Loves_Monuments_2016'; break;
+        case 'np': website = 'https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2016_in_Nepal'; break;
         case 'pa': website = 'https://commons.wikimedia.org/wiki/Commons:Wiki_Loves_Monuments_2013_in_Panama'; break; //LOST http://www.wlmpanama.org.pa
         case 'pk': website = 'https://en.wikipedia.org/wiki/Wikipedia:Wiki_Loves_Monuments_Pakistan'; break;
         case 'ro': website = 'http://wikilovesmonuments.ro'; break;
         case 'rs': website = 'http://wikilovesmonuments.al'; break; // same as Albania
-        case 'ru': website = 'https://ru.wikimedia.org/wiki/%D0%92%D0%B8%D0%BA%D0%B8_%D0%BB%D1%8E%D0%B1%D0%B8%D1%82_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA%D0%B8-2015'; break;
+        case 'ru': website = 'https://ru.wikimedia.org/wiki/%D0%92%D0%B8%D0%BA%D0%B8_%D0%BB%D1%8E%D0%B1%D0%B8%D1%82_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA%D0%B8-2016'; break;
         case 'se': website = 'https://www.wikimedia.se/sv/wlm/'; break;
         case 'sk': website = 'http://wikilovesmonuments.sk'; break;
         case 'th': website = 'http://www.wmth.org'; break;
@@ -249,7 +249,7 @@ function init() {
         
         '<h3>' + translatemsg('statistics') + '</h3>' + 
         '<p>' + translatemsg('statistics-description') + '</p>' + 
-        '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2015-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
+        '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2016-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
         
         '<h3>' + translatemsg('see-also') + '</h3>' + 
         '<ul style="margin-left: -20px;">' + 
