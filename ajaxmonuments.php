@@ -72,10 +72,10 @@ try {
     if ($withImages == '1'){
         $imageCondition = "image != ''";
     }
-    $sql="SELECT country, lang, id, name, lat, lon, municipality, address, image, commonscat, monument_article, monument_random, source " .
+    $sql="SELECT country, lang, id, name, lat, lon, municipality, address, image, commonscat, monument_article, source " .
          "FROM monuments_all " .
          "WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top AND " . $imageCondition . " " .
-         "ORDER BY monument_random " .
+         "ORDER BY id " .
          "LIMIT " . $limit;
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':left', $left, PDO::PARAM_STR);
