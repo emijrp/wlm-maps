@@ -75,7 +75,7 @@ try {
     $sql="SELECT country, lang, id, name, lat, lon, municipality, address, image, commonscat, monument_article, source " .
          "FROM monuments_all " .
          "WHERE lon>=:left AND lon<=:right AND lat>=:bottom AND lat<=:top AND " . $imageCondition . " " .
-         "ORDER BY id " .
+         "ORDER BY MD5(id)" .
          "LIMIT " . $limit;
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':left', $left, PDO::PARAM_STR);
