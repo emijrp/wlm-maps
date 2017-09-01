@@ -45,7 +45,7 @@ try {
 
 try {
     $limit = 4;
-    $sql="SELECT page_title, page_latest, rev_user_text, rev_timestamp FROM page, categorylinks, revision WHERE page_id=cl_from AND page_latest=rev_id AND page_namespace=6 AND cl_to='Images_from_Wiki_Loves_Monuments_2016' GROUP BY rev_user_text ORDER BY rev_timestamp DESC LIMIT ".$limit;
+    $sql="SELECT page_title, page_latest, rev_user_text, rev_timestamp FROM page, categorylinks, revision WHERE page_id=cl_from AND page_latest=rev_id AND page_namespace=6 AND cl_to='Images_from_Wiki_Loves_Monuments_2017' GROUP BY rev_user_text ORDER BY rev_timestamp DESC LIMIT ".$limit;
     $stmt = $db->prepare($sql);
     $stmt->execute();
 } catch(PDOException $e) {
