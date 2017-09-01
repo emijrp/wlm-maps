@@ -250,7 +250,7 @@ function init() {
         
         '<h3>' + translatemsg('statistics') + '</h3>' + 
         '<p>' + translatemsg('statistics-description') + '</p>' + 
-        '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2016-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
+        '<iframe src="//tools.wmflabs.org/wlm-stats/stats-2017-mini.php" width=330px height=170px frameborder=0 scrolling=no style="margin-bottom: -20px;">Browser not compatible.</iframe>' +
         
         '<h3>' + translatemsg('see-also') + '</h3>' + 
         '<ul style="margin-left: -20px;">' + 
