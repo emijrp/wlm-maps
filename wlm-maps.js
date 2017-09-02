@@ -67,6 +67,7 @@ function geohack(latd,lond) {
 function getfacebook (country) {
     var facebook = 'https://www.facebook.com/WikiLovesMonuments';
     switch (country) {
+        case 'bd': facebook = 'https://www.facebook.com/WLMBangladesh'; break;
         case 'br': facebook = 'https://www.facebook.com/WikiLovesMonumentsBrasil'; break;
         case 'ch': facebook = 'https://www.facebook.com/WikilovesmonumentsCH'; break;
         case 'cl': facebook = 'https://www.facebook.com/wlmcl'; break;
@@ -90,6 +91,7 @@ function gettwitter (country) {
     var twitter = 'wikimonuments';
     switch (country) {
         case 'at': twitter = 'WikimediaAT'; break;
+        case 'bd': twitter = 'WLMBangladesh'; break;
         case 'br': twitter = 'WLM_BRASIL'; break;
         case 'cl': twitter = 'wikimedia_cl'; break;
         case 'cm': twitter = 'WLM_CM'; break;
@@ -126,6 +128,7 @@ function getwebsite (country) {
         case 'am': website = 'https://hy.wikipedia.org/wiki/%D5%8E%D5%AB%D6%84%D5%AB%D5%BA%D5%A5%D5%A4%D5%AB%D5%A1:%D5%8E%D5%AB%D6%84%D5%AB%D5%B6_%D5%BD%D5%AB%D6%80%D5%B8%D6%82%D5%B4_%D5%A7_%D5%B0%D5%B8%D6%82%D5%B7%D5%A1%D6%80%D5%B1%D5%A1%D5%B6%D5%B6%D5%A5%D6%80_2016'; break;
         case 'at': website = 'http://wikilovesmonuments.at'; break;
         case 'az': website = 'https://az.wikipedia.org/wiki/Vikipediya:Viki_Abid%C9%99l%C9%99ri_Sevir_2016'; break;
+        case 'bd': website = 'http://www.wikiloves.org/monuments'; break;
         case 'br': website = 'https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Wiki_Loves_Monuments_2016/Brasil'; break;
         case 'cm': website = 'http://cm.wikilovesmonuments.org'; break;
         case 'co': website = 'http://wikilovesmonuments.co'; break;
