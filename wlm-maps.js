@@ -166,7 +166,7 @@ function getwebsite (country) {
 }
 
 function init() {
-    var osmUrl='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';    
+    var osmUrl='//tile.openstreetmap.org/{z}/{x}/{y}.png';
     var osmAttrib=translatemsg('osm-attrib');
     
     withimageicon=L.icon({
